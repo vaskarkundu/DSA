@@ -13,7 +13,7 @@ public class Linked_list {
         }
     }
 
-    // add first
+    // add node in first
     public void addFirst(String data){
         Node newNode = new Node(data);
         if(head == null){
@@ -24,7 +24,7 @@ public class Linked_list {
         newNode.next = head;
         head = newNode;
     }
-    //add last
+    //add node in last
     public void addLast(String data){
         Node newNode = new Node(data);
         if(head == null){
@@ -40,8 +40,91 @@ public class Linked_list {
         current.next = newNode;
         
     }
+
+    // print linked list
+    public void printLst(){
+        Node current = head;
+        if(current == null){
+            System.out.println("Linked List is empty");
+            return;
+        }
+        System.out.println(current.data);
+        while(current != null){
+            System.out.print(current.data + "->");
+             current =current.next ;
+        }
+        System.out.println("NUll");
+    }
+
+    // remove first element from linked list
+
+    public void firstRemove(){
+        Node current = head;
+        if(current == null){
+            System.out.println("Linked List is empty");
+            return;
+        }
+        head = head.next;
+    }
+
+    // remove last element from linked list
+
+    public void lastRemove(){
+        
+      
+        
+        if(head == null){
+            System.out.println("Linked List is empty");
+            return;
+
+        }
+
+        if(head.next == null){
+            head = null;
+            return;
+        }
+        Node current = head;
+        while (current.next.next != null) {
+            
+             current = current.next;
+            
+        }
+        current.next = null;
+        
+
+    }
+
+    // size of a linked list
+    public void size(){
+
+        Node current = head;
+       
+        int i = 0;
+        while (current != null) {  
+           i++;
+           current =current.next;
+            
+        }
+       
+        System.out.println(i);
+
+        
+    }
     public static void main(String[] args) {
         System.out.println("k");
         Linked_list LL = new Linked_list();
+        // LL.firstRemove();
+        LL.addFirst("I");
+        LL.lastRemove();
+        LL.addFirst("Love");
+        LL.lastRemove();
+        // LL.addFirst("Programing");
+        // LL.addFirst("Programingzzzzzzz");
+        // // LL.addLast("done");
+        // LL.addLast("doneone");
+       
+        LL.printLst();
+        LL.size();
+        
     }
 }
