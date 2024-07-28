@@ -48,7 +48,7 @@ public class Linked_list {
             System.out.println("Linked List is empty");
             return;
         }
-        System.out.println(current.data);
+        
         while(current != null){
             System.out.print(current.data + "->");
              current =current.next ;
@@ -68,30 +68,32 @@ public class Linked_list {
     }
 
     // remove last element from linked list
-
+    
     public void lastRemove(){
-        
-      
-        
         if(head == null){
             System.out.println("Linked List is empty");
             return;
-
         }
-
         if(head.next == null){
             head = null;
             return;
         }
         Node current = head;
         while (current.next.next != null) {
-            
              current = current.next;
-            
         }
         current.next = null;
-        
+    }
 
+    // method for removing specific data
+
+    public void removeElement(String data){
+        Node currNode = head;
+        while (currNode.data == data) {
+
+            currNode = currNode.next;
+            
+        }
     }
 
     // size of a linked list
@@ -115,9 +117,9 @@ public class Linked_list {
         Linked_list LL = new Linked_list();
         // LL.firstRemove();
         LL.addFirst("I");
-        LL.lastRemove();
+        // LL.lastRemove();
         LL.addFirst("Love");
-        LL.lastRemove();
+        // LL.lastRemove();
         // LL.addFirst("Programing");
         // LL.addFirst("Programingzzzzzzz");
         // // LL.addLast("done");

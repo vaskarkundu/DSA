@@ -43,7 +43,7 @@ public class Sorting {
 
         printArray(arr);
 
-        // Insertation sort
+        // Insertation sort ==> time complexcity O(n^2)
 
         for(int i = 1; i<arr.length; i++){
             int curr = arr[i];
