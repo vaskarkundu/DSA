@@ -26,10 +26,26 @@ public class Recursion {
        
     }
 
+    // print factorial of number N
+    public static void printFactorial(int n,int s){
+
+        if(n == 0){
+            System.out.println(s);
+            return;
+        }
+
+        s *=n;
+    
+        printFactorial(n-1,s);
+         
+         
+    }
+
     public static void main(String[] args) {
         //recursion
         // printNum(1);
         printNaturalSum(1,5,0);
+        printFactorial(5,1);
     }
     
 }
