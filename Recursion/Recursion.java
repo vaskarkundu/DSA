@@ -48,17 +48,47 @@ public class Recursion {
         fibonacciSerise(b, c, n-1);
 
     }
+   // print x^n (stack height)    
+    public static int printStackHieght(int x, int n){
+        if(x == 0){
+            return 0;
+        }
+        if(n == 0){
+            return 1;
+        }
+        int xpowerm1 = printStackHieght(x, n-1);
+        int xpower = x * xpowerm1;
+        return xpower;
+    }
+    public static int printStackHightLogN(int x, int n){
+        if(x == 0){
+            return 0;
+        }
+        if(n == 0){
+            return 1;
+        }
+        if(n % 2 == 0){
+            return printStackHieght(x, n/2) * printStackHieght(x, n/2);
+        }else{
+            return printStackHieght(x, n/2) * printStackHieght(x, n/2) * x;
+        }
+       
+    }
 
 
     public static void main(String[] args) {
         //recursion problem
         // printNum(1);
         // printNaturalSum(1,5,0);
-        int a = 0, b= 1;
-        System.out.println(a);
-        System.out.println(b);
-        int n = 10;
-        fibonacciSerise(a,b,n-2);
+        // int a = 0, b= 1;
+        //  System.out.println(a);
+        // System.out.println(b);
+        // int n = 10;
+        // fibonacciSerise(a,b,n-2);
+        // int x =printStackHieght(3, 3);
+        int x = printStackHightLogN(3, 3);
+        // System.out.println(x);
+      
     }
     
 }
