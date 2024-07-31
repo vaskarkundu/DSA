@@ -75,6 +75,20 @@ public class Recursion {
        
     }
 
+    public static boolean powerof2(int x){
+        if(x == 1){
+            return true;
+        }
+       
+        if (x < 1 || x % 2 != 0) {
+            return false;
+        }
+        return powerof2(x/2);
+        // return true;
+    }
+
+    // tower of hanoi
+
 
     public static void main(String[] args) {
         //recursion problem
@@ -86,8 +100,10 @@ public class Recursion {
         // int n = 10;
         // fibonacciSerise(a,b,n-2);
         // int x =printStackHieght(3, 3);
-        int x = printStackHightLogN(3, 3);
-        // System.out.println(x);
+        // int x = printStackHightLogN(3, 3);
+        System.out.println(16%2);
+        boolean x = powerof2(16);
+        System.out.println(x);
       
     }
     
