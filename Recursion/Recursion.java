@@ -88,9 +88,20 @@ public class Recursion {
     }
 
     // tower of hanoi
+    public static void towerofHanoi(int n, String s, String h,String d){
+        if(n == 1){
+            System.out.println("transer dist " + n +" from " +s +"to "+d);
+            return;
+        }
+        towerofHanoi(n-1, s, d, h);
+        System.out.println("transer dist " + n +" from " +s +"to "+d);
+        towerofHanoi(n-1, h, s, d);
+
+    }
 
 
     public static void main(String[] args) {
+        towerofHanoi(4, "s","h","d");
         //recursion problem
         // printNum(1);
         // printNaturalSum(1,5,0);
@@ -101,9 +112,9 @@ public class Recursion {
         // fibonacciSerise(a,b,n-2);
         // int x =printStackHieght(3, 3);
         // int x = printStackHightLogN(3, 3);
-        System.out.println(16%2);
-        boolean x = powerof2(16);
-        System.out.println(x);
+        // System.out.println(16%2);
+        // boolean x = powerof2(16);
+        // System.out.println(x);
       
     }
     
