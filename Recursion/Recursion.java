@@ -33,19 +33,32 @@ public class Recursion {
             System.out.println(s);
             return;
         }
-
         s *=n;
-    
         printFactorial(n-1,s);
-         
          
     }
 
+    // print fibonacci serise till nth term
+    public static void fibonacciSerise(int a, int b, int n){
+        if(n==0){
+            return;
+        }
+        int c = a +b;
+        System.out.println(c);
+        fibonacciSerise(b, c, n-1);
+
+    }
+
+
     public static void main(String[] args) {
-        //recursion
+        //recursion problem
         // printNum(1);
-        printNaturalSum(1,5,0);
-        printFactorial(5,1);
+        // printNaturalSum(1,5,0);
+        int a = 0, b= 1;
+        System.out.println(a);
+        System.out.println(b);
+        int n = 10;
+        fibonacciSerise(a,b,n-2);
     }
     
 }
