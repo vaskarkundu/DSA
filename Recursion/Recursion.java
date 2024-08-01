@@ -107,10 +107,31 @@ public class Recursion {
         System.out.println(str.charAt(i-1));
         printReverse(str,i-1);
     }
+    public static int first = -1;
+    public static  int last = -1;
+    // find the first and last occuraence of an element in string
+    public static void firstLast(String str,int i,char x){
+        
+        if(i == str.length()){
+            System.out.println(first);
+            System.out.println(last);
+            return;
+        }
+       
+        if(str.charAt(i) == x){
+            if(first == -1){
+                first = i;
+            }else{
+                last = i;
+            }
+        }
+        firstLast(str, i+1,x);
+    }
 
 
     public static void main(String[] args) {
-        printReverse("abcdef", 6);
+        firstLast("abaacdaefaahb", 0,'b');
+        // printReverse("abcdef", 6);
         // towerofHanoi(4, "s","h","d");
         //recursion problem
         // printNum(1);
