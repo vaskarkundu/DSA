@@ -156,12 +156,37 @@ public class Recursion {
 
         return isStricklySorted(arr, i+1);
     }
+    // Move all "x" to the last in a element
+    public static int count = 0;
+    public static String newStr = "";
+    public static void moveElementinLast(String str, int i,char x){
+      if(i == str.length()){
+        
+        for(int in =1; in<=count; in++){
+            newStr = newStr + x;
+        }
+        System.out.println(newStr);
+        System.out.println(count);
+        return;
+      }
+      if(str.charAt(i) == x){
+        count++;
+
+      }else{
+        char f = str.charAt(i);
+        newStr = newStr + f;
+      }
+
+      moveElementinLast(str, i+1, x);
+
+    }
 
 
     public static void main(String[] args) {
-        int[] x = {1,2,3,4,5,6,-100};
-        boolean c = isStricklySorted(x,0);
-        System.out.println(c);
+        moveElementinLast("abceeeeeeeeed", 0, 'e');
+        // int[] x = {1,2,3,4,5,6,-100};
+        // boolean c = isStricklySorted(x,0);
+        // System.out.println(c);
         // firstLast("abaacdaefaahb", 0,'b');
         // printReverse("abcdef", 6);
         // towerofHanoi(4, "s","h","d");
