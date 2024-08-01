@@ -98,10 +98,20 @@ public class Recursion {
         towerofHanoi(n-1, h, s, d);
 
     }
+    // print reverse a string
+    public static void printReverse(String str,int i){
+        if(i == 0){
+            return;
+        }
+        
+        System.out.println(str.charAt(i-1));
+        printReverse(str,i-1);
+    }
 
 
     public static void main(String[] args) {
-        towerofHanoi(4, "s","h","d");
+        printReverse("abcdef", 6);
+        // towerofHanoi(4, "s","h","d");
         //recursion problem
         // printNum(1);
         // printNaturalSum(1,5,0);
