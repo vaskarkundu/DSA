@@ -1,6 +1,11 @@
 package Recursion;
 
+import java.lang.reflect.Array;
+
 public class Recursion {
+    // for first and last occurance element question static variable
+    public static int first = -1;
+    public static  int last = -1;
    
 
     // print 5 to 1;
@@ -107,8 +112,7 @@ public class Recursion {
         System.out.println(str.charAt(i-1));
         printReverse(str,i-1);
     }
-    public static int first = -1;
-    public static  int last = -1;
+    
     // find the first and last occuraence of an element in string
     public static void firstLast(String str,int i,char x){
         
@@ -127,10 +131,38 @@ public class Recursion {
         }
         firstLast(str, i+1,x);
     }
+    
+    public static int c = 0;
+    public static int n = 0;
+    public static boolean check = true; 
+    // check if an array is sorted(strickly increase)
+    public static boolean isStricklySorted(int[] arr,int i){
+        if(check == false){   
+            return check;
+        }
+        if(i == arr.length - 1){       
+           return check;
+        }
+        c = arr[i];
+        n = arr[i+1];
+        if(n > c){
+            check = true;
+
+        }else{
+            check = false;
+            
+            
+        }
+
+        return isStricklySorted(arr, i+1);
+    }
 
 
     public static void main(String[] args) {
-        firstLast("abaacdaefaahb", 0,'b');
+        int[] x = {1,2,3,4,5,6,-100};
+        boolean c = isStricklySorted(x,0);
+        System.out.println(c);
+        // firstLast("abaacdaefaahb", 0,'b');
         // printReverse("abcdef", 6);
         // towerofHanoi(4, "s","h","d");
         //recursion problem
