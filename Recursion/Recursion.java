@@ -157,13 +157,12 @@ public class Recursion {
         return isStricklySorted(arr, i+1);
     }
     // Move all "x" to the last in a element
-    public static int count = 0;
-    public static String newStr = "";
-    public static void moveElementinLast(String str, int i,char x){
+    
+    public static void moveElementinLast(String str, int i,int count,String newStr,char x){
       if(i == str.length()){
         
         for(int in =1; in<=count; in++){
-            newStr = newStr + x;
+            newStr += x;
         }
         System.out.println(newStr);
         System.out.println(count);
@@ -171,19 +170,32 @@ public class Recursion {
       }
       if(str.charAt(i) == x){
         count++;
-
-      }else{
-        char f = str.charAt(i);
-        newStr = newStr + f;
+      }else{        
+        newStr += str.charAt(i);
       }
-
-      moveElementinLast(str, i+1, x);
-
+      moveElementinLast(str, i+1,count,newStr, x);
     }
 
-
+    // Remove duplicates from a string 
+    // (boss logic) remember this logic ; all lower case char has a ASCII value a to z ==> 97 - 122;
+    public static boolean[] map = new boolean[26];
+    public static void removeDuplicates(String str,int i,String newStr ){
+        if(i == str.length()){
+        System.out.println(newStr);
+        return;
+       }
+       char current = str.charAt(i);
+       if(map[current - 'a']){
+        removeDuplicates(str, i+1, newStr);
+       }else{
+        newStr += current;
+        map[current - 'a']= true;
+        removeDuplicates(str, i+1, newStr);
+       }
+    }
     public static void main(String[] args) {
-        moveElementinLast("abceeeeeeeeed", 0, 'e');
+        removeDuplicates("abbaccddffee", 0, "");
+        // moveElementinLast("abced", 0,0,"", 'e');
         // int[] x = {1,2,3,4,5,6,-100};
         // boolean c = isStricklySorted(x,0);
         // System.out.println(c);
