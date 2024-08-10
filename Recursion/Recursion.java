@@ -1,4 +1,5 @@
 package Recursion;
+import java.util.*;
 
 import java.lang.reflect.Array;
 
@@ -192,7 +193,7 @@ public class Recursion {
        }
     }
 
-    // print all subsequence of string
+    // print all subsequence of string ==> time complexcity O(2^n)
     public static void subsequence(String str, int i, String newStr){
 
         if(i == str.length()){
@@ -207,8 +208,29 @@ public class Recursion {
         // not to be
         subsequence(str, i+1, newStr);
     }
+
+    // print all unique sunsequnce ==> time complexcity 
+    public static void uniqueSubsequnce(String str, int i, String newStr,HashSet<String> set){
+       if(i == str.length()){
+         if(set.contains(newStr)){
+            return;
+         }else{
+            System.out.println(newStr);
+            set.add(newStr);
+            return;
+         }
+       }
+
+        char curr = str.charAt(i);
+        uniqueSubsequnce(str, i+1, newStr+curr,set);
+        uniqueSubsequnce(str, i+1, newStr,set);
+    }
+
+
     public static void main(String[] args) {
-        subsequence("abc", 0,"");
+        HashSet<String> set = new HashSet<>();
+        uniqueSubsequnce("aaa", 0,"", set);
+        // subsequence("abc", 0,"");
         // removeDuplicates("abbaccddffee", 0, "");
         // moveElementinLast("abced", 0,0,"", 'e');
         // int[] x = {1,2,3,4,5,6,-100};
