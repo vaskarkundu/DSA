@@ -27,8 +27,6 @@ public class Recursion {
         }
         sum +=i;
         printNaturalSum(i+1, n, sum);
-       
-       
     }
 
     // print factorial of number N
@@ -177,7 +175,7 @@ public class Recursion {
     }
 
     // Remove duplicates from a string 
-    // (boss logic) remember this logic ; all lower case char has a ASCII value a to z ==> 97 - 122;
+    // (boss logic) remember this logic; all lower case char has a ASCII value a to z ==> 97 - 122;
     public static boolean[] map = new boolean[26];
     public static void removeDuplicates(String str,int i,String newStr ){
         if(i == str.length()){
@@ -193,8 +191,25 @@ public class Recursion {
         removeDuplicates(str, i+1, newStr);
        }
     }
+
+    // print all subsequence of string
+    public static void subsequence(String str, int i, String newStr){
+
+        if(i == str.length()){
+            System.out.println(newStr);
+            return;
+        }
+
+         char x = str.charAt(i);
+        // to be
+        subsequence(str, i+1, newStr+x);
+
+        // not to be
+        subsequence(str, i+1, newStr);
+    }
     public static void main(String[] args) {
-        removeDuplicates("abbaccddffee", 0, "");
+        subsequence("abc", 0,"");
+        // removeDuplicates("abbaccddffee", 0, "");
         // moveElementinLast("abced", 0,0,"", 'e');
         // int[] x = {1,2,3,4,5,6,-100};
         // boolean c = isStricklySorted(x,0);
