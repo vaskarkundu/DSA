@@ -226,10 +226,25 @@ public class Recursion {
         uniqueSubsequnce(str, i+1, newStr,set);
     }
 
+    // print keypad comb
+    public static String[] keypad = {".","abc","def","ghi","jkl","mno","pqrs","tu","vwx","yz"};
+    public static void printFComb(String str,int idx,String nString){
+        if(idx == str.length()){
+            System.out.println(nString);
+            return;
+        }
+        char curr = str.charAt(idx);
+        String mapping = keypad[curr - '0'];
+        for(int i =0; i<mapping.length();i++){
+            printFComb(str, idx+1, nString+mapping.charAt(i));
+        }
+    }
+
 
     public static void main(String[] args) {
-        HashSet<String> set = new HashSet<>();
-        uniqueSubsequnce("aaa", 0,"", set);
+        printFComb("23", 0,"");
+        // HashSet<String> set = new HashSet<>();
+        // uniqueSubsequnce("aaa", 0,"", set);
         // subsequence("abc", 0,"");
         // removeDuplicates("abbaccddffee", 0, "");
         // moveElementinLast("abced", 0,0,"", 'e');
