@@ -3,9 +3,11 @@ package String;
 public class String_question {
 
     public static void reverseString(char[] s) {
-        char[] newArray = new char[s.length+1];
-        for(int i = s.length -1; i>=0; i--){
-            newArray[i]=s[i];
+       
+
+        char[] newArray = new char[s.length];  
+        for (int i = 0; i < s.length; i++) {
+            newArray[i] = s[s.length - 1 - i];  
         }
         System.out.println(newArray);
      
