@@ -107,7 +107,6 @@ public class Recursion {
         if(i == 0){
             return;
         }
-        
         System.out.println(str.charAt(i-1));
         printReverse(str,i-1);
     }
@@ -148,9 +147,7 @@ public class Recursion {
             check = true;
 
         }else{
-            check = false;
-            
-            
+            check = false;           
         }
 
         return isStricklySorted(arr, i+1);
