@@ -5,11 +5,15 @@ public class String_question {
     public static void reverseString(char[] s) {
        
 
-        char[] newArray = new char[s.length];  
-        for (int i = 0; i < s.length; i++) {
-            newArray[i] = s[s.length - 1 - i];  
+        int left = 0;
+        int right = s.length - 1;
+        while(left < right){
+            char temp = s[left];
+            s[left]=s[right];
+            s[right]=temp;
+            left ++;
+            right --;
         }
-        System.out.println(newArray);
      
         
     }
