@@ -3,8 +3,6 @@ package String;
 public class String_question {
 
     public static void reverseString(char[] s) {
-       
-
         int left = 0;
         int right = s.length - 1;
         while(left < right){
@@ -13,9 +11,7 @@ public class String_question {
             s[right]=temp;
             left ++;
             right --;
-        }
-     
-        
+        }   
     }
 
     public static void main(String[] args) {
