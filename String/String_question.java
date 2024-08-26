@@ -18,8 +18,6 @@ public class String_question {
     }
     // similar pari of string;
     public static int similarPairs(String[] words) {
-
-        
         int count = 0;
         for(int i =0; i<words.length;i++){
             Set<Character> set1 = new HashSet<>();
@@ -42,11 +40,35 @@ public class String_question {
         
     }
 
+    public static void test(String[] w){
+        Set<String> set1 = new HashSet<>();
+        for(int i =0; i<w.length;i++){
+            set1.add(w[i]);
+        }
+
+        System.out.println(set1);
+
+    }
+
+    public static int numUniqueEmails(String[] emails) {
+        
+        Set<String> set1 = new HashSet<>();
+        for(int i =0; i<emails.length;i++){
+            set1.add(emails[i].replaceAll("\\.(?=[^@]*@)", "").replaceAll("\\+.*@", "@"));
+        }
+
+
+        return set1.size();
+        
+    }
+
     public static void main(String[] args) {
         char[] myCharArray = {'a', 'b', 'c', 'd', 'e'};
-        String[] c = {"aba","aabb","abcd","bac","aabc"};
-        int x =similarPairs(c);
-        System.out.println(x);
+        String[] c = {"a@leetcode.com","b@leetcode.com","c@leetcode.com"};
+        // int x =similarPairs(c);
+        int y = numUniqueEmails(c);
+        // test(c);
+        System.out.println(y);
     }
     
 }
