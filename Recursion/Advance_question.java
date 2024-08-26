@@ -12,7 +12,9 @@ public class Advance_question {
 
         for(int i=0; i<str.length();i++){
             char curr = str.charAt(i);
+            
             String newString = str.substring(0, i)+str.substring(i+1);
+            
             printPerm(newString, permutation+curr);
         }
     }
