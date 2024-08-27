@@ -1,6 +1,8 @@
 package String;
 
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 public class String_question {
@@ -83,11 +85,28 @@ public class String_question {
         
     }
 
+    public static int finalValueAfterOperations(String[] operations) {
+        int initail = 0;
+        Map<String, Integer> map = new HashMap<>();
+        map.put("--X", -1);
+        map.put("X--", -1);
+        map.put("++X", 1);
+        map.put("X++", 1);
+
+        for(String s : operations){
+            initail = initail + map.get(s);
+        }
+        
+
+        return initail;
+        
+    }
+
     public static void main(String[] args) {
        
-        String[] c = {"cba","daf","ghi"};
+        String[] c = {"++X","++X","X++"};
         // int x =similarPairs(c);
-        int y = minDeletionSize(c);
+        int y = finalValueAfterOperations(c);
         // test(c);
         System.out.println(y);
     }
