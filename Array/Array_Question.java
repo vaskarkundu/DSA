@@ -32,6 +32,12 @@ public class Array_Question {
         return isvoilation;
         
     }
+    public static int deleteGreatestValue(int[][] grid) {
+        int i = 0;
+
+        return i;
+        
+    }
     public static void main(String[] args) {
         System.out.println("done");
         int[] arr = {2,3,4,3,2,5};
