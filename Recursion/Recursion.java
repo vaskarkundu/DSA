@@ -47,7 +47,7 @@ public class Recursion {
         if(n==0){
             return;
         }
-        int c = a +b;
+        int c = a + b;
         System.out.println(c);
         fibonacciSerise(b, c, n-1);
 
