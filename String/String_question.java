@@ -40,16 +40,6 @@ public class String_question {
         
     }
 
-    public static void test(String[] w){
-        Set<String> set1 = new HashSet<>();
-        for(int i =0; i<w.length;i++){
-            set1.add(w[i]);
-        }
-
-        System.out.println(set1);
-
-    }
-
     public static int numUniqueEmails(String[] emails) {
         
         Set<String> set1 = new HashSet<>();
@@ -62,11 +52,42 @@ public class String_question {
         
     }
 
+    public static int minDeletionSize(String[] strs) {
+        int count = 0;
+        int numRows = strs.length;
+        int numCols = strs[0].length();
+        String[] result = new String[numCols];
+           
+            for (int i = 0; i < numCols; i++) {
+                result[i] = "";
+            }
+            
+            
+            for (int col = 0; col < numCols; col++) {
+                for (int row = 0; row < numRows; row++) {
+                    result[col] += strs[row].charAt(col);
+                    
+                }
+            }
+            for(int i = 0; i< result.length; i++){
+               for(int j = 0; j<result[i].length() -1;j++){
+                if(result[i].charAt(j) > result[i].charAt(j+1)){
+                    count++;
+                    break;
+                }
+               }
+            }
+            
+           
+        return count;
+        
+    }
+
     public static void main(String[] args) {
-        char[] myCharArray = {'a', 'b', 'c', 'd', 'e'};
-        String[] c = {"a@leetcode.com","b@leetcode.com","c@leetcode.com"};
+       
+        String[] c = {"cba","daf","ghi"};
         // int x =similarPairs(c);
-        int y = numUniqueEmails(c);
+        int y = minDeletionSize(c);
         // test(c);
         System.out.println(y);
     }
