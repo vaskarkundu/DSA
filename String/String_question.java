@@ -102,6 +102,12 @@ public class String_question {
         
     }
 
+    public static int alternateDigitSum(int n) {
+        int ini = 0;
+
+        return ini;
+    }
+
     public static void main(String[] args) {
        
         String[] c = {"++X","++X","X++"};
