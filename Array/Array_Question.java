@@ -1,5 +1,7 @@
 package Array;
 
+import java.lang.reflect.Array;
+
 public class Array_Question {
     public static boolean validMountainArray(int[] arr) {
         boolean res = true;
@@ -33,15 +35,24 @@ public class Array_Question {
         
     }
     public static int deleteGreatestValue(int[][] grid) {
-        int i = 0;
+        int initail = 0;
 
-        return i;
+        for(int i = 0; i<grid.length; i++){
+           for(int j = 0; j<grid[i].length; j++){
+            System.out.println(grid[i][j]);
+           }
+        }
+
+        return initail;
         
     }
     public static void main(String[] args) {
         System.out.println("done");
-        int[] arr = {2,3,4,3,2,5};
-        boolean x=validMountainArray(arr);
+        int[][] arr = {
+            {1, 2, 4},
+            {3, 3, 1}
+        };;
+        int x=deleteGreatestValue(arr);
         System.out.println(x);
         
     }
