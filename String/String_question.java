@@ -126,23 +126,43 @@ public class String_question {
         return result;
     }
 
+    public static int countPrefixes(String[] words, String s) {
+
+        int idx = 0;
+
+        for(int i =0; i<=s.length(); i++){
+            String prefix = s.substring(0, i);
+            for(int j = 0; j<words.length; j++){
+                if(prefix.equals(words[j])){
+                    idx++;
+                }
+            }
+        }
+
+        return idx;
+        
+    }
+
     public static void main(String[] args) {
        
-        String[] c = {"++X","++X","X++"};
+        String[] words = {"a","b","c","ab","bc","abc"};
+        String s = "abc";
+        int x = countPrefixes(words,s);
+        System.out.println(x);
         // int x =similarPairs(c);
-        int y = finalValueAfterOperations(c);
-        // test(c);
-        // System.out.println(y);
+        // int y = finalValueAfterOperations(c);
+        // // test(c);
+        // // System.out.println(y);
 
-        List<String> words = List.of("one.two.three", "four.five", "six");
-        char separator = '.'; // Use a char for the separator
+        // List<String> words = List.of("one.two.three", "four.five", "six");
+        // char separator = '.'; // Use a char for the separator
         
-        List<String> result = splitWordsBySeparator(words, separator);
+        // List<String> result = splitWordsBySeparator(words, separator);
         
-        // Print the result list
-        for (String str : result) {
-            System.out.println(str);
-        }
+        // // Print the result list
+        // for (String str : result) {
+        //     System.out.println(str);
+        // }
     }
     
 }
