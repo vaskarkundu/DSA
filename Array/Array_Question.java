@@ -1,4 +1,7 @@
 package Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import java.lang.reflect.Array;
 
@@ -46,14 +49,39 @@ public class Array_Question {
         return initail;
         
     }
+    // remove anagrams
+    public static List<String> removeAnagrams(String[] words) {
+        List<String> arr = new ArrayList<>();
+
+        for(String s : words){
+            arr.add(s);
+        }
+
+        for(int i =0; i<words.length - 1 ; i++){
+            if(areAnagarms(words[i], words[i+1])){
+                arr.remove(words[i+1]);
+            }
+          
+        }
+        return arr;
+        }
+    public static boolean areAnagarms(String a,String b){
+        char[] arOne = a.toCharArray();
+        char[] arrTwo = b.toCharArray();
+        Arrays.sort(arOne);
+        Arrays.sort(arrTwo);
+        return Arrays.equals(arOne, arrTwo);
+    }
     public static void main(String[] args) {
-        System.out.println("done");
-        int[][] arr = {
-            {1, 2, 4},
-            {3, 3, 1}
-        };;
-        int x=deleteGreatestValue(arr);
-        System.out.println(x);
+        // System.out.println("done");
+        // int[][] arr = {
+        //     {1, 2, 4},
+        //     {3, 3, 1}
+        // };;
+        // int x=deleteGreatestValue(arr);
+        String[] w = {"a","b","c","d","e"};
+        List<String> c =removeAnagrams(w);
+        System.out.println(c);
         
     }
 }
