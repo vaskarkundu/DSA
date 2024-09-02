@@ -1,9 +1,12 @@
 package String;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.regex.Pattern;
 
 public class String_question {
 
@@ -108,13 +111,38 @@ public class String_question {
         return ini;
     }
 
+     public static List<String> splitWordsBySeparator(List<String> words, char separator) {
+        List<String> result = new ArrayList<>();
+        
+        for (String word : words) {
+            String[] parts = word.split(Character.toString(separator), -1); // Convert char to String for splitting
+            for (String part : parts) {
+                if (!part.isEmpty()) { // Exclude empty strings
+                    result.add(part);
+                }
+            }
+        }
+        
+        return result;
+    }
+
     public static void main(String[] args) {
        
         String[] c = {"++X","++X","X++"};
         // int x =similarPairs(c);
         int y = finalValueAfterOperations(c);
         // test(c);
-        System.out.println(y);
+        // System.out.println(y);
+
+        List<String> words = List.of("one.two.three", "four.five", "six");
+        char separator = '.'; // Use a char for the separator
+        
+        List<String> result = splitWordsBySeparator(words, separator);
+        
+        // Print the result list
+        for (String str : result) {
+            System.out.println(str);
+        }
     }
     
 }
