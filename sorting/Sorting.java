@@ -8,8 +8,8 @@ public class Sorting {
         }
         System.out.println();
     }
-
-    public static void marged(int[] arr, int mid, int si, int end){
+    // marge sort start ==> Time complexity is O(nlogn)
+    public static void conqure(int[] arr, int mid, int si, int end){
         int[] marged = new int[end - si + 1];
         int ind1 = si;
         int indx2 = mid+1;
@@ -46,9 +46,13 @@ public class Sorting {
         int mid = si + (end - si)/2;
         devide(arr, si, mid);
         devide(arr, mid+1, end);
-        marged(arr, mid, si, end);
+        conqure(arr, mid, si, end);
 
     }
+
+    // Question : sort linked list using marged sort (important problem)
+
+    // marge sort end 
  
 
     public static void main(String[] args) {
