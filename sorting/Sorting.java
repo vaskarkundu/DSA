@@ -8,11 +8,56 @@ public class Sorting {
         }
         System.out.println();
     }
+
+    public static void marged(int[] arr, int mid, int si, int end){
+        int[] marged = new int[end - si + 1];
+        int ind1 = si;
+        int indx2 = mid+1;
+        int x = 0;
+        while (ind1<=mid && indx2 <=end) {
+            if(arr[ind1] <= arr[indx2]){
+                marged[x++] = arr[ind1++];
+            }else{
+                marged[x++] = arr[indx2++];
+            }
+            
+        }
+
+        while (ind1<=mid) {
+            marged[x++] = arr[ind1++];
+        }
+
+        while (indx2 <= end) {
+            marged[x++] = arr[indx2++];
+        }
+
+       for(int i =0, j=si; i<marged.length;i++,j++){
+        arr[j]=marged[i];
+       }
+
+    }
+
+    public static void devide(int[] arr,int si, int end){
+
+        if(si >= end){
+            return;
+        }
+
+        int mid = si + (end - si)/2;
+        devide(arr, si, mid);
+        devide(arr, mid+1, end);
+        marged(arr, mid, si, end);
+
+    }
  
 
     public static void main(String[] args) {
        
         int arr[]={4,1,5,3,9,6};
+        devide(arr, 0, arr.length-1);
+        for(int s : arr){
+            System.out.println(s);
+        }
         // bubble sort ==> time complexcity O(n^2)
         for(int i =0; i<arr.length - 1; i++){
             for(int j=0; j<arr.length - i - 1; j++){
@@ -24,7 +69,7 @@ public class Sorting {
             }
         }
 
-        printArray(arr);
+        // printArray(arr);
 
         // selection sort ==> time complexcity O(n^2)
 
@@ -41,7 +86,7 @@ public class Sorting {
             arr[i]=temp;
         }
 
-        printArray(arr);
+        // printArray(arr);
 
         // Insertation sort ==> time complexcity O(n^2)
 
@@ -57,7 +102,9 @@ public class Sorting {
             // placement
             arr[j+1] = curr;
         }
-        printArray(arr);
+        // printArray(arr);
+
+        // marge sort ==> based on devied and conqure
 
         
     }
