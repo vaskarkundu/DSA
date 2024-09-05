@@ -113,19 +113,37 @@ public class Sorting {
         return result;
         
     }
+
+    public static double average(int[] salary) {
+       
+
+        HashSet<Integer> set = new HashSet<>();
+        for(int i =0; i<salary.length; i++){
+            set.add(salary[i]);
+
+        }
+        double sum = 0.0;
+        for (Integer value : set) {
+            
+            sum += value;
+        }
+       
+
+       double len = set.size();
+
+        return sum /len ;
+       
+        
+    }
     public static void main(String[] args) {
         
         // 5,4,2,3
-        int arr[]={7,8,3,4,15,13,4,1};
-        // double jk = minimumAverage(arr);
-        // System.out.println(jk);
-
-        int[] num = {2,5};
-        int[] res =numberGame(num);
-        // devide(arr, 0, arr.length-1);
-        for(int s : res){
-            System.out.println(s);
-        }
+        int arr[]={8000,9000,2000,3000,6000,1000,1000};
+        double c = average(arr);
+        System.out.println(c);
+        // for(int s : res){
+        //     System.out.println(s);
+        // }
         // bubble sort ==> time complexcity O(n^2)
         for(int i =0; i<arr.length - 1; i++){
             for(int j=0; j<arr.length - i - 1; j++){
