@@ -1,8 +1,7 @@
 package sorting;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
+import java.lang.reflect.Array;
+import java.util.*;
 
 public class Sorting {
 
@@ -92,15 +91,41 @@ public class Sorting {
         
         return nums;
     }
+    
+    // number games
+
+    public static int[] numberGame(int[] nums) {
+
+        Arrays.sort(nums);
+        ArrayList<Integer> res = new ArrayList<>();
+
+        for(int i =0; i<nums.length - 1; i=i+2){
+            res.add(nums[i+1]);
+            res.add(nums[i]);
+
+        }
+        int[] result = new int[res.size()];
+        for(int i =0; i<res.size(); i++){
+            result[i]=res.get(i);
+
+        }
+
+        return result;
+        
+    }
     public static void main(String[] args) {
-    //    1, 3, 4   ,4,7,   8, 13, 15  ==> 8,8,6,5.5
+        
+        // 5,4,2,3
         int arr[]={7,8,3,4,15,13,4,1};
-        double jk = minimumAverage(arr);
-        System.out.println(jk);
+        // double jk = minimumAverage(arr);
+        // System.out.println(jk);
+
+        int[] num = {2,5};
+        int[] res =numberGame(num);
         // devide(arr, 0, arr.length-1);
-        // for(int s : arr){
-        //     System.out.println(s);
-        // }
+        for(int s : res){
+            System.out.println(s);
+        }
         // bubble sort ==> time complexcity O(n^2)
         for(int i =0; i<arr.length - 1; i++){
             for(int j=0; j<arr.length - i - 1; j++){
