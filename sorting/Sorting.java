@@ -1,5 +1,9 @@
 package sorting;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+
 public class Sorting {
 
     public static void printArray(int arr[]) {
@@ -53,15 +57,50 @@ public class Sorting {
     // Question : sort linked list using marged sort (important problem)
 
     // marge sort end 
- 
-
-    public static void main(String[] args) {
+    // claculation of minimum avrage
+    public static double minimumAverage(int[] nums) {
+        ArrayList<Double> avarage = new ArrayList<>();
+        int[] sortnums = sorted(nums);
        
-        int arr[]={4,1,5,3,9,6};
-        devide(arr, 0, arr.length-1);
-        for(int s : arr){
-            System.out.println(s);
+        int start = 0;
+        int end = sortnums.length - 1;
+        while (start < end) {
+            double ava = (sortnums[start] + sortnums[end]) / 2.0;
+            avarage.add(ava);
+            start++;
+            end--;
+            
         }
+        
+       Collections.sort(avarage);
+        
+
+        return avarage.get(0);
+        
+    }
+
+    public static int[] sorted(int[] nums){
+        for(int i =0; i<nums.length; i++){
+            for(int j =0; j<nums.length - i -1; j++){
+                if(nums[j] > nums[j+1]){
+                    int temp = nums[j];
+                    nums[j]=nums[j+1];
+                    nums[j+1] = temp;
+                }
+            }
+        }
+        
+        return nums;
+    }
+    public static void main(String[] args) {
+    //    1, 3, 4   ,4,7,   8, 13, 15  ==> 8,8,6,5.5
+        int arr[]={7,8,3,4,15,13,4,1};
+        double jk = minimumAverage(arr);
+        System.out.println(jk);
+        // devide(arr, 0, arr.length-1);
+        // for(int s : arr){
+        //     System.out.println(s);
+        // }
         // bubble sort ==> time complexcity O(n^2)
         for(int i =0; i<arr.length - 1; i++){
             for(int j=0; j<arr.length - i - 1; j++){
