@@ -1,5 +1,7 @@
 package sorting;
 
+import java.util.ArrayList;
+
 public class Marge_sort {
 
     public static void conqure(int[] arr, int si, int ei, int mid){
@@ -49,18 +51,45 @@ public class Marge_sort {
         return nums;
         
     }
+
+    public static void merge(int[] nums1, int m, int[] nums2, int n) {
+        int[] res = new int[nums1.length + nums2.length];
+
+
+        for(int i =0; i<nums1.length; i++){
+            res[i]=nums1[i];
+        }
+        for(int i =0; i<nums2.length; i++){
+            res[nums1.length + i]=nums2[i];
+        }
+
+        ArrayList<Integer> s = new ArrayList<>();
+
+        for(int i = 0; i<res.length; i++){
+            if(res[i] !=0){
+                s.add(res[i]);
+            }
+        }
+
+        for(int sb : s){
+            System.out.println(sb);
+        }
+        
+    }
     
 
 
     public static void main(String[] args) {
 
-        int[] ar = {1,4,2,3,6,7,8,3};
+        int[] ar = {1};
+        int[] ar1 = {0};
+        merge(ar, 3, ar1, 0);
         // devied(ar, 0, ar.length-1);
-        int[] res = sortArray(ar);
-        for(int s : res){
-            System.out.println(s);
+        // int[] res = sortArray(ar);
+        // for(int s : res){
+        //     System.out.println(s);
 
-        }
+        // }
 
         
     }
