@@ -38,6 +38,8 @@ public class Sorting {
         arr[j]=marged[i];
        }
 
+      
+
     }
 
     public static void devide(int[] arr,int si, int end){
@@ -139,8 +141,13 @@ public class Sorting {
         
         // 5,4,2,3
         int arr[]={8000,9000,2000,3000,6000,1000,1000};
-        double c = average(arr);
-        System.out.println(c);
+        // double c = average(arr);
+        // System.out.println(c);
+
+        devide(arr, 0, arr.length -1);
+        for(int s :arr){
+            System.out.println(s);
+        }
         // for(int s : res){
         //     System.out.println(s);
         // }
