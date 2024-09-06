@@ -80,13 +80,9 @@ public class Marge_sort {
         for(int i =0; i<s.size(); i++){
             nums1[i]=s.get(i);
         }
-
-       
-
-       
         
     }
-    
+      
 
 
     public static void main(String[] args) {
