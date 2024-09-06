@@ -51,10 +51,9 @@ public class Marge_sort {
         return nums;
         
     }
-
+    // need to customize value and return within nums1
     public static void merge(int[] nums1, int m, int[] nums2, int n) {
-        int[] res = new int[nums1.length + nums2.length];
-
+        int[] res = new int[m+n];
 
         for(int i =0; i<nums1.length; i++){
             res[i]=nums1[i];
@@ -63,17 +62,28 @@ public class Marge_sort {
             res[nums1.length + i]=nums2[i];
         }
 
+        nums1 = res;
+        for(int i = 0; i<nums1.length; i++){
+            if(nums1[i] != 0){
+                nums1[i]=nums1[i];
+            }
+        }
+
         ArrayList<Integer> s = new ArrayList<>();
 
-        for(int i = 0; i<res.length; i++){
+        for(int i = 0; i<nums1.length; i++){
             if(res[i] !=0){
                 s.add(res[i]);
             }
         }
 
-        for(int sb : s){
-            System.out.println(sb);
+        for(int i =0; i<s.size(); i++){
+            nums1[i]=s.get(i);
         }
+
+       
+
+       
         
     }
     
@@ -81,9 +91,9 @@ public class Marge_sort {
 
     public static void main(String[] args) {
 
-        int[] ar = {1};
-        int[] ar1 = {0};
-        merge(ar, 3, ar1, 0);
+        int[] ar = {1,2,3,0};
+        int[] ar1 = {4,5,6};
+        merge(ar, 4, ar1, 3);
         // devied(ar, 0, ar.length-1);
         // int[] res = sortArray(ar);
         // for(int s : res){
