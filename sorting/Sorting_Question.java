@@ -41,8 +41,7 @@ public class Sorting_Question {
             }
             
         }
-        int left = 0;
-        int right = 1;
+        
         ArrayList<Integer> arr = new ArrayList<>();
         for(int i = 0; i<res.size() - 1; i++){
             if(res.get(i) < res.get(i+1)){
