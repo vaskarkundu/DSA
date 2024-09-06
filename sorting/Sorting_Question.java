@@ -1,8 +1,10 @@
 package sorting;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.*;
 
 public class Sorting_Question {
 
@@ -78,12 +80,29 @@ public class Sorting_Question {
         return res;
         
     }
+
+    public static int missingNumber(int[] nums) {
+        int res = 0;
+
+        Arrays.sort(nums);
+
+        for(int i = 0; i<nums.length; i++){
+            if(nums[i] == res){
+                res++;
+            }
+
+        }
+
+        return res;
+        
+    }
     
 
 
     public static void main(String[] args) {
-        int[] x = {3,2,4,2};
-        boolean y = containsDuplicate(x);
+        int[] x = {2,0,1,3};
+        // boolean y = containsDuplicate(x);
+        int y = missingNumber(x);
         System.out.println(y);
         // int y =majorityElement(x);
         // System.out.println(y);
