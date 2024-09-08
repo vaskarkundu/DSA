@@ -51,10 +51,12 @@ public class Bit_Manupulation {
         }
 
     }
-
+    // 1010 | 0010 =1010 =8+0+2
     // 0101 & 0100 ~ 1011 ==>  0001
     // 0101 & 0010 ==>  0001
     // 0100 ==> not ==>1011 & 0101==>0001
+
+    // 1 ^ 2 ==> 0001 | 0010 => 0011 ==> 1100
 
     public static void main(String[] args) {
 
@@ -63,7 +65,8 @@ public class Bit_Manupulation {
         int pos = 2;
         // getBit(n, pos);
         // setBit(n, pos);
-        clearBit(n, pos);
+        // clearBit(n, pos);
+        updateBit(n, pos, 1);
       
 
         // Set Bit operation
