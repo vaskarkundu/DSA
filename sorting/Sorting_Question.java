@@ -1,9 +1,6 @@
 package sorting;
 
 import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.*;
 
 public class Sorting_Question {
@@ -96,13 +93,47 @@ public class Sorting_Question {
         return res;
         
     }
-    
+
+    public static int[] sorting(int[] arr){
+        for(int i =0; i<arr.length - 1; i++){
+            for(int j=0; j<arr.length - i - 1; j++){
+                if(arr[j]>arr[j+1]){
+                    int tem = arr[j];
+                    arr[j]=arr[j+1];
+                    arr[j+1]=tem;
+                }
+            }
+        }
+        return arr;
+    }
+
+      public static int dominantIndex(int[] nums) {
+       
+       if(nums.length == 0) return -1;
+
+       int maxIn = 0;
+       for(int i = 0; i<nums.length; i++){
+        if(nums[i] > nums[maxIn]){
+            maxIn = i;
+        }
+       }
+
+       for(int i=0; i<nums.length; i++){
+        if(i != maxIn && nums[maxIn] < 2 * nums[i]){
+            return -1;
+        }
+       }
+
+       return maxIn;
+        
+    }
 
 
+   
     public static void main(String[] args) {
-        int[] x = {2,0,1,3};
+        int[] x = {3,6,1,0};
         // boolean y = containsDuplicate(x);
-        int y = missingNumber(x);
+        int y = dominantIndex(x);
         System.out.println(y);
         // int y =majorityElement(x);
         // System.out.println(y);
