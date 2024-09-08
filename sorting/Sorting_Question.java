@@ -128,13 +128,37 @@ public class Sorting_Question {
         
     }
 
+    public static int[] sortArrayByParity(int[] nums) {
+
+        for(int i =0; i<nums.length - 1;i++ ){
+            int small = i;
+            for(int j = i+ 1; j<nums.length; j++){
+                if(nums[small] % 2 != 0){
+                    small = j;
+                }
+            }
+            int temp = nums[small];
+            nums[small] = nums[i];
+            nums[i]=temp;
+        }
+
+
+     
+
+        return nums;
+        
+    }
+
 
    
     public static void main(String[] args) {
-        int[] x = {3,6,1,0};
+        int[] x = {3,1,2,4};
         // boolean y = containsDuplicate(x);
-        int y = dominantIndex(x);
-        System.out.println(y);
+        int[] y = sortArrayByParity(x);
+        for(int s : y){
+            System.out.println(s);
+        }
+        // System.out.println(y);
         // int y =majorityElement(x);
         // System.out.println(y);
         // int[][] x = {{1,2},{2,3}};
