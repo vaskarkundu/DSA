@@ -12,15 +12,36 @@ public class Bit_Manupulation {
     // 5 ==> 0101
     // 1 =>0001 ==> 0100
 
-    public static void main(String[] args) {
-        int n = 5;
-        int pos = 3;
+    public static void getBit(int n, int pos){
         int bitMask = 1<<pos;
         if((n & bitMask)==0){
             System.out.println("bit was zero");
         }else{
             System.out.println("bit was one");
         }
+
+    }
+
+    public static void setBit(int n, int pos){
+        int bitMask = 1<<pos;
+        int newNum = bitMask | n;
+        System.out.println(newNum);
+
+    }
+    // 0101 | 0010 => 0111
+
+    public static void main(String[] args) {
+
+        // Get Bit operation
+        int n = 5;
+        int pos = 1;
+        // getBit(n, pos);
+        setBit(n, pos);
+      
+
+        // Set Bit operation
+
+       
         
     }
     
