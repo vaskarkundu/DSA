@@ -36,8 +36,25 @@ public class Bit_Manupulation {
         System.out.println(newNumber);
 
     }
-    
+
+    public static void updateBit(int n, int pos,int operation){
+
+        if(operation == 1){
+            int bitMask = 1<<pos;
+            int newNum = bitMask | n;
+            System.out.println(newNum);
+
+        }else{
+            int bitMask = ~(1<<pos);
+            int newNumber = bitMask & n;
+            System.out.println(newNumber);
+        }
+
+    }
+
     // 0101 & 0100 ~ 1011 ==>  0001
+    // 0101 & 0010 ==>  0001
+    // 0100 ==> not ==>1011 & 0101==>0001
 
     public static void main(String[] args) {
 
