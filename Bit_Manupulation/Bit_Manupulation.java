@@ -8,9 +8,10 @@ public class Bit_Manupulation {
     // AND operation
 
     // binary operation
-    // 8-4-2-1 
+    // 8-4-2-1  ==> 0100 * 
     // 5 ==> 0101
-    // 1 =>0001 ==> 0100
+    // 1 =>0001 ==> 0001 *
+    // 
 
     public static void getBit(int n, int pos){
         int bitMask = 1<<pos;
