@@ -1,6 +1,6 @@
 package Bit_Manupulation;
 
-import java.lang.reflect.Array;
+
 import java.util.*;
 
 public class Bit_Manupulation_Question {
@@ -107,8 +107,6 @@ public class Bit_Manupulation_Question {
 
         
     }
-
-    // ∣x−y∣≤min(x,y)
 
     public static int maximumStrongPairXor(int[] nums) {
        
