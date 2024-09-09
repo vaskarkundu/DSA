@@ -98,15 +98,54 @@ public class Bit_Manupulation_Question {
         
     }
 
+    public static int min(int x, int y){
+        if(x - y >= 0){
+            return y;
+        }else{
+            return x;
+        }
+
+        
+    }
+
+    // ∣x−y∣≤min(x,y)
+
+    public static int maximumStrongPairXor(int[] nums) {
+       
+
+        int res = 0;
+
+        for(int i =0; i<nums.length; i++){
+            int calc = 0;
+            for(int j = i+1; j<nums.length; j++){
+                if(Math.abs(nums[i] - nums[j]) <= min(nums[i], nums[j])){
+                    calc = nums[i] ^ nums[j];
+                }
+                if(calc > res){
+                    res = calc;
+    
+                }
+            }
+           
+
+        }
+
+        return res;
+        
+    }
+
+
+
 
     
 
 
     public static void main(String[] args) {
-        int[] nums = {1,3,5,7,9};
+        int[] nums = {1,2,3,4,5};
         // int y = duplicateNumbersXOR(nums);
         // System.out.println(y);
-        boolean c = hasTrailingZeros(nums);
+        // boolean c = hasTrailingZeros(nums);
+        int c = maximumStrongPairXor(nums);
         System.out.println(c);
 
         
