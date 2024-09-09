@@ -5,10 +5,6 @@ import java.util.*;
 
 public class Bit_Manupulation_Question {
     
-// Code
-// Testcase
-// Testcase
-// Test Result
 // 3158. Find the XOR of Numbers Which Appear Twice
     public static int duplicateNumbersXOR(int[] nums) {
 
@@ -28,7 +24,10 @@ public class Bit_Manupulation_Question {
         }else if(lio.size() == 1){
             res = lio.get(0);
         }else{
-            res = lio.get(0) ^ lio.get(1);
+            for(int i=0; i<lio.size();i++){
+                res = res ^ lio.get(i); 
+            }
+            
         }
 
         return res;
@@ -37,7 +36,7 @@ public class Bit_Manupulation_Question {
 
 
     public static void main(String[] args) {
-        int[] nums = {1,2,3};
+        int[] nums = {1,2,3,1,2,3,4,4};
         int y = duplicateNumbersXOR(nums);
         System.out.println(y);
 
