@@ -132,11 +132,7 @@ public class Bit_Manupulation_Question {
         return res;
         
     }
-    //  2917. Find the K-or of an Array
-    
-    public static int findKOr(int[] nums, int k) {
-        return 1;
-    }
+  
 
     public static int singleNumber(int[] nums) {
         if(nums.length == 1) return nums[0];
@@ -194,6 +190,11 @@ public class Bit_Manupulation_Question {
         
     }
 
+    //  2917. Find the K-or of an Array
+    
+    public static int findKOr(int[] nums, int k) {
+        return 1;
+    }
 
 
     
