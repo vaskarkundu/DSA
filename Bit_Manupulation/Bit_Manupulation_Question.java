@@ -179,22 +179,33 @@ public class Bit_Manupulation_Question {
         
     }
 
+    public static int hammingWeight(int n) {
+
+        String s = Integer.toBinaryString(n);
+        
+        int res = 0;
+        for(int i = 0; i<s.length();i++){
+            int x = s.charAt(i) - '0';
+            if((x ^ 0) != 0){
+                res++;
+            } 
+        }
+        return res;
+        
+    }
+
 
 
     
 
 
     public static void main(String[] args) {
-        String a = "1010", b = "1011";
-        String s =addBinary(a,b);
-        System.out.println(s);
-        // 11224
+       
         int[] nums = {1,2,1,7,2,5,5};
-        // int y = duplicateNumbersXOR(s);
-        // System.out.println(y);
-        // boolean c = hasTrailingZeros(nums);
-        // int c = singleNumber(nums);
-        // System.out.println(c);
+
+        int c = hammingWeight(7);
+        System.out.println(c);
+       
 
         
     }
