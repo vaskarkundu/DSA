@@ -1,6 +1,7 @@
 package Bit_Manupulation;
 
 
+import java.math.BigInteger;
 import java.util.*;
 
 public class Bit_Manupulation_Question {
@@ -150,6 +151,33 @@ public class Bit_Manupulation_Question {
         return last;
         
     }
+    // need to remember add binary ; how It works
+    public static String addBinary(String a, String b) {
+        StringBuilder result = new StringBuilder();
+        int i = a.length() - 1;
+        int j = b.length() - 1;
+        int carry = 0;
+        while (i >= 0 || j >= 0|| carry == 1) {
+
+            int sum = carry;
+
+            if(i >=0){
+                sum += a.charAt(i) - '0';
+                i--;
+            }
+            if(j >=0){
+                sum += b.charAt(j) - '0';
+                j--;
+            }
+
+            result.append(sum % 2);
+            carry = sum / 2;
+            
+        }
+
+        return result.reverse().toString();
+        
+    }
 
 
 
@@ -157,13 +185,16 @@ public class Bit_Manupulation_Question {
 
 
     public static void main(String[] args) {
+        String a = "1010", b = "1011";
+        String s =addBinary(a,b);
+        System.out.println(s);
         // 11224
         int[] nums = {1,2,1,7,2,5,5};
         // int y = duplicateNumbersXOR(s);
         // System.out.println(y);
         // boolean c = hasTrailingZeros(nums);
-        int c = singleNumber(nums);
-        System.out.println(c);
+        // int c = singleNumber(nums);
+        // System.out.println(c);
 
         
     }
