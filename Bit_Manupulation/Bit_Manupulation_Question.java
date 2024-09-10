@@ -131,7 +131,25 @@ public class Bit_Manupulation_Question {
         return res;
         
     }
+    //  2917. Find the K-or of an Array
+    
+    public static int findKOr(int[] nums, int k) {
+        return 1;
+    }
 
+    public static int singleNumber(int[] nums) {
+        if(nums.length == 1) return nums[0];
+         Arrays.sort(nums);
+         int last = nums[nums.length - 1];
+        for(int i =0; i<nums.length - 2; i = i+2){
+            if( (nums[i] ^ nums[i+1]) != 0){
+
+                return nums[i];
+            }
+        }
+        return last;
+        
+    }
 
 
 
@@ -139,11 +157,12 @@ public class Bit_Manupulation_Question {
 
 
     public static void main(String[] args) {
-        int[] nums = {1,2,3,4,5};
-        // int y = duplicateNumbersXOR(nums);
+        // 11224
+        int[] nums = {1,2,1,7,2,5,5};
+        // int y = duplicateNumbersXOR(s);
         // System.out.println(y);
         // boolean c = hasTrailingZeros(nums);
-        int c = maximumStrongPairXor(nums);
+        int c = singleNumber(nums);
         System.out.println(c);
 
         
