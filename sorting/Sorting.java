@@ -193,8 +193,6 @@ public class Sorting {
     public static int maximumGap(int[] nums) {
 
         if(nums.length < 2) return 0;
-       
-
         redixSort(nums);
         
         int n = 0;
@@ -205,9 +203,6 @@ public class Sorting {
                 n = x;
             }
         }
-
-       
-
         return n;
         
     }
