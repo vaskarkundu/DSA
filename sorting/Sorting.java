@@ -219,10 +219,7 @@ public class Sorting {
         for (int num : nums) {
             numSet.add(num);
         }
-
-        int maxLength = 0;
-
-       
+        int maxLength = 0; 
         for (int num : numSet) {
            
             if (!numSet.contains(num - 1)) {
@@ -234,8 +231,6 @@ public class Sorting {
                     currentNum++;
                     currentLength++;
                 }
-
-               
                 maxLength = Math.max(maxLength, currentLength);
             }
         }
