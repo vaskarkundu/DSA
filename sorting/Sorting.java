@@ -184,8 +184,6 @@ public class Sorting {
     //  redix sort ==> O(N)
     public static void redixSort(int[] nums){
         int max = getMax(nums);
-
-        
         for (int exp = 1; max / exp > 0; exp *= 10) {
             countingSort(nums, exp);
         }
@@ -213,9 +211,45 @@ public class Sorting {
         return n;
         
     }
+
+    public static int longestConsecutive(int[] nums) {
+
+        if (nums.length == 0) return 0;
+        Set<Integer> numSet = new HashSet<>();
+        for (int num : nums) {
+            numSet.add(num);
+        }
+
+        int maxLength = 0;
+
+       
+        for (int num : numSet) {
+           
+            if (!numSet.contains(num - 1)) {
+                int currentNum = num;
+                int currentLength = 1;
+
+               
+                while (numSet.contains(currentNum + 1)) {
+                    currentNum++;
+                    currentLength++;
+                }
+
+               
+                maxLength = Math.max(maxLength, currentLength);
+            }
+        }
+
+        return maxLength;
+       
+    
+
+        
+        
+    }
     public static void main(String[] args) {
-        int [] nums = {3,6,9,1};
-        int z = maximumGap(nums);
+        int [] nums = {100,4,200,1,3,2};
+        int z = longestConsecutive(nums);
         System.out.println(z);
         
         // 5,4,2,3
