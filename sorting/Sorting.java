@@ -139,6 +139,10 @@ public class Sorting {
         
     }
 
+    public static int[] countSort(int[] nums){
+        return nums;
+    }
+
     public static int maximumGap(int[] nums) {
 
         if(nums.length < 2) return 0;
