@@ -117,6 +117,7 @@ public class Sorting {
     }
 
     public static double average(int[] salary) {
+
        
 
         HashSet<Integer> set = new HashSet<>();
@@ -137,17 +138,40 @@ public class Sorting {
        
         
     }
+
+    public static int maximumGap(int[] nums) {
+
+        if(nums.length < 2) return 0;
+        Arrays.sort(nums);
+        
+        int n = 0;
+        for(int i = 0; i<nums.length - 1; i++){
+           
+            int x = Math.abs(nums[i] - nums[i + 1]) ;
+            if(x > n){
+                n = x;
+            }
+        }
+
+       
+
+        return n;
+        
+    }
     public static void main(String[] args) {
+        int [] nums = {3,6,9,1};
+        int z = maximumGap(nums);
+        System.out.println(z);
         
         // 5,4,2,3
         int arr[]={8000,9000,2000,3000,6000,1000,1000};
         // double c = average(arr);
         // System.out.println(c);
 
-        devide(arr, 0, arr.length -1);
-        for(int s :arr){
-            System.out.println(s);
-        }
+        // devide(arr, 0, arr.length -1);
+        // for(int s :arr){
+        //     System.out.println(s);
+        // }
         // for(int s : res){
         //     System.out.println(s);
         // }
