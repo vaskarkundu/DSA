@@ -139,14 +139,65 @@ public class Sorting {
         
     }
 
-    public static int[] countSort(int[] nums){
-        return nums;
+    public static int getMax(int[] nums){
+        int max = nums[0];
+        for(int i =0; i<nums.length; i++){
+            if(nums[i] > max){
+                max = nums[i];
+            }
+        }
+
+        return max;
+    }
+
+    public static void countingSort(int[] nums, int exp) {
+        int n = nums.length;
+        int[] output = new int[n]; 
+        int[] count = new int[10]; 
+        
+       
+        Arrays.fill(count, 0);
+        
+       
+        for (int i = 0; i < n; i++) {
+            int digit = (nums[i] / exp) % 10;
+            count[digit]++;
+        }
+
+      
+        for (int i = 1; i < 10; i++) {
+            count[i] += count[i - 1];
+        }
+
+        
+        for (int i = n - 1; i >= 0; i--) {
+            int digit = (nums[i] / exp) % 10;
+            output[count[digit] - 1] = nums[i];
+            count[digit]--;
+        }
+
+      
+        for (int i = 0; i < n; i++) {
+            nums[i] = output[i];
+        }
+    }
+
+    public static void redixSort(int[] nums){
+        int max = getMax(nums);
+
+        
+        for (int exp = 1; max / exp > 0; exp *= 10) {
+            countingSort(nums, exp);
+        }
+
     }
 
     public static int maximumGap(int[] nums) {
 
         if(nums.length < 2) return 0;
-        Arrays.sort(nums);
+       
+
+        redixSort(nums);
         
         int n = 0;
         for(int i = 0; i<nums.length - 1; i++){
