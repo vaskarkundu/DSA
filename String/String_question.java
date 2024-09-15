@@ -166,11 +166,41 @@ public class String_question {
         return sMap.equals(tMap);
     }
 
+    public static int strStr(String haystack, String needle) {
+        int beg = 0;
+        int end = needle.length();
+
+        for(int i = 0; i<haystack.length(); i = i + end){
+    
+            String x = haystack.substring(i, i + end);
+            
+
+            if(needle.equals(x)){
+                return i;
+            }
+           
+            
+            if(end + end > haystack.length()){
+                return - 1;
+            }
+            
+            
+           
+            
+        }
+        return -1;
+
+       
+
+       
+        
+    }
+
     public static void main(String[] args) {
 
-        String s = "aacc";
-        String t = "ccac";
-        boolean x = isAnagram(s, t);
+        String s = "leetcode";
+        String t = "code";
+        int x = strStr(s, t);
         System.out.println(x);
        
         // String[] words = {"a","b","c","ab","bc","abc"};
