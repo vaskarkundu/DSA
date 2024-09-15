@@ -181,7 +181,7 @@ public class Sorting {
             nums[i] = output[i];
         }
     }
-
+    //  redix sort ==> O(N)
     public static void redixSort(int[] nums){
         int max = getMax(nums);
 
