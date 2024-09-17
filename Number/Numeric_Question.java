@@ -12,7 +12,6 @@ public class Numeric_Question {
         recur(n, pr+1);
        }else{
         int m = n / primefactor[pr];
-        // System.out.println(primefactor[pr]);
         recur(m, pr+1);
        }
 
@@ -52,9 +51,6 @@ public class Numeric_Question {
         if (res < Integer.MIN_VALUE / 10 || (res == Integer.MIN_VALUE / 10 && reminder < -8)) {
             return 0; 
         }
-
-
-
 
        res = res * 10 + reminder;
        return reverse(x/10,res); 
