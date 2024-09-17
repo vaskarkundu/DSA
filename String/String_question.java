@@ -196,11 +196,26 @@ public class String_question {
         
     }
 
+    public static int addDigits(int num) {
+       
+        while ( num >= 10) {
+            int res = 0;
+            String x = Integer.toString(num);
+           
+            for(int i = 0; i<x.length(); i++){
+                
+                res += Character.getNumericValue(x.charAt(i));
+            }
+            num = res;
+        }
+        return num;
+        
+    }
+
     public static void main(String[] args) {
 
-        String s = "leetcode";
-        String t = "code";
-        int x = strStr(s, t);
+      
+        int x = addDigits(0);
         System.out.println(x);
        
         // String[] words = {"a","b","c","ab","bc","abc"};
