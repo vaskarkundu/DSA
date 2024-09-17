@@ -1,6 +1,7 @@
 package Number;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Numeric_Question {
 
@@ -56,8 +57,27 @@ public class Numeric_Question {
        return reverse(x/10,res); 
     }
 
+    public static List<String> fizzBuzz(int n) {
+        List<String> myList = new ArrayList<>();
+
+        for(int i = 1; i<=n; i++){
+            if(i % 3 ==0 && i%5 ==0){
+                myList.add("FizzBuzz");
+            }else if(i % 5 == 0){
+                myList.add("Buzz");
+            }else if(i % 5 ==0){
+                myList.add("Buzz");
+            }else{
+                myList.add(Integer.toString(i));
+            }
+        }
+
+        return myList;
+        
+    }
+
     public static void main(String[] args) {
-        int x = reversHelper(1534236469);
+        List<String> x = fizzBuzz(15);
         System.out.println(x);
         
     }
