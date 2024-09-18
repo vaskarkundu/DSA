@@ -1,6 +1,8 @@
 package String;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -212,30 +214,40 @@ public class String_question {
         
     }
 
+    public static String replaceWords(List<String> dictionary, String sentence) {
+        dictionary.sort(Comparator.comparingInt(String::length));
+        System.out.println(dictionary);
+
+       String[] s = sentence.split("\\s+");
+
+       for(int i =0; i<dictionary.size(); i++){
+        for(int j = i; j<s.length;j++){
+
+            if(s[j].startsWith(dictionary.get(i))){
+                s[j] = dictionary.get(i); 
+                break; 
+            }
+            
+        }
+       }
+        return String.join(" ", s);
+
+
+       
+    }
+
     public static void main(String[] args) {
 
-      
-        int x = addDigits(0);
-        System.out.println(x);
-       
-        // String[] words = {"a","b","c","ab","bc","abc"};
-        // String s = "abc";
-        // int x = countPrefixes(words,s);
-        // System.out.println(x);
-        // int x =similarPairs(c);
-        // int y = finalValueAfterOperations(c);
-        // // test(c);
-        // // System.out.println(y);
+        String sem = "the cattle was rattled by the battery";
+        List<String> myList = new ArrayList<>(Arrays.asList("catt","cat","bat","rat"));
 
-        // List<String> words = List.of("one.two.three", "four.five", "six");
-        // char separator = '.'; // Use a char for the separator
-        
-        // List<String> result = splitWordsBySeparator(words, separator);
-        
-        // // Print the result list
-        // for (String str : result) {
-        //     System.out.println(str);
+      
+        String x = replaceWords(myList,sem);
+        // for(String s : x){
+
         // }
+        System.out.println(x);
+    
     }
     
 }
