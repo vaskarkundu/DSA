@@ -76,6 +76,16 @@ public class Numeric_Question {
         
     }
 
+    public List<Integer> selfDividingNumbers(int left, int right) {
+        List<Integer> seftDividing = new ArrayList<>();
+
+        for(int i = left; i<=right; i++){
+            if(i % 10)
+        }
+
+        return seftDividing;
+    }
+
     public static void main(String[] args) {
         List<String> x = fizzBuzz(15);
         System.out.println(x);
