@@ -13,13 +13,10 @@ public class Search_Question {
             int mid = low + (high - low) /2;
 
             if(arr[mid] == ter){
-                System.out.println("first"+arr[mid]);
                 return mid;
             }else if(arr[mid] < ter){
-                System.out.println("low"+arr[mid]);
                 low = mid + 1;
             }else{
-                System.out.println("high"+arr[mid]);
                  high = mid- 1;
 
             }
