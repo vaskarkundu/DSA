@@ -87,59 +87,54 @@ public class Numeric_Question {
     // }
 
     public static String addStrings(String num1, String num2) {
-        int num = 0;
-        int second = 0;
-        
-        for(int i = 0; i<num1.length(); i++){
-            int x = num1.charAt(i) - '0';
-           
-            num = num * 10 + x;
-        }
-        for(int i = 0; i<num2.length(); i++){
-            int y = num2.charAt(i) - '0';
-            second = second * 10 + y;
+        if (num1.length() < num2.length()) {
+            String temp = num1;
+            num1 = num2;
+            num2 = temp;
         }
 
-        System.out.println(num);
+        // Initialize the result and carry
+        StringBuilder result = new StringBuilder();
+        int carry = 0;
+        int length1 = num1.length();
+        int length2 = num2.length();
 
-        int res = second + num;
-
-        if(res == 0){
-            return "0";
+        // Add digits from the end to the beginning
+        for (int i = 0; i < length1; i++) {
+            int digit1 = num1.charAt(length1 - 1 - i) - '0';
+            int digit2 = i < length2 ? num2.charAt(length2 - 1 - i) - '0' : 0;
+            int sum = digit1 + digit2 + carry;
+            carry = sum / 10;
+            result.append(sum % 10);
         }
 
-        System.out.println(res);
-
-
-        char[] result = new char[10];  
-        int index = 0;
-
-       
-        while (res > 0) {
-            int digit = res % 10;
-            result[index++] = (char) (digit + '0');
-            res /= 10;
+        // If there's a carry left, add it
+        if (carry > 0) {
+            result.append(carry);
         }
 
-        
-        StringBuilder finalResult = new StringBuilder();
-        for (int i = index - 1; i >= 0; i--) {
-            finalResult.append(result[i]);
-        }
-
-       
-
-
-        
-
-        return finalResult.toString();
+     
+        return result.reverse().toString();
 
         
         
     }
 
+
+    public static String reverseWords(String s) {
+
+        String[] part = s.trim().split("\\s+");
+        ArrayList<String> x = new ArrayList<>();
+        for(int i = part.length - 1; i> 0; i--){
+            x.add(part[i]);
+        }
+        String str = String.join(" ", x);
+        return str;
+        
+    }
+
     public static void main(String[] args) {
-        String x = addStrings("6913259244","71103343");
+        String x = reverseWords("the sky is blue");
         System.out.println(x);
         
     }
