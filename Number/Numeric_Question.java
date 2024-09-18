@@ -76,18 +76,70 @@ public class Numeric_Question {
         
     }
 
-    public List<Integer> selfDividingNumbers(int left, int right) {
-        List<Integer> seftDividing = new ArrayList<>();
+    // public List<Integer> selfDividingNumbers(int left, int right) {
+    //     List<Integer> seftDividing = new ArrayList<>();
 
-        for(int i = left; i<=right; i++){
-            if(i % 10)
+    //     for(int i = left; i<=right; i++){
+    //         if(i % 10)
+    //     }
+
+    //     return seftDividing;
+    // }
+
+    public static String addStrings(String num1, String num2) {
+        int num = 0;
+        int second = 0;
+        
+        for(int i = 0; i<num1.length(); i++){
+            int x = num1.charAt(i) - '0';
+           
+            num = num * 10 + x;
+        }
+        for(int i = 0; i<num2.length(); i++){
+            int y = num2.charAt(i) - '0';
+            second = second * 10 + y;
         }
 
-        return seftDividing;
+        System.out.println(num);
+
+        int res = second + num;
+
+        if(res == 0){
+            return "0";
+        }
+
+        System.out.println(res);
+
+
+        char[] result = new char[10];  
+        int index = 0;
+
+       
+        while (res > 0) {
+            int digit = res % 10;
+            result[index++] = (char) (digit + '0');
+            res /= 10;
+        }
+
+        
+        StringBuilder finalResult = new StringBuilder();
+        for (int i = index - 1; i >= 0; i--) {
+            finalResult.append(result[i]);
+        }
+
+       
+
+
+        
+
+        return finalResult.toString();
+
+        
+        
     }
 
     public static void main(String[] args) {
-        List<String> x = fizzBuzz(15);
+        String x = addStrings("6913259244","71103343");
         System.out.println(x);
         
     }
