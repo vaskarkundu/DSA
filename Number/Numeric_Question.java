@@ -1,6 +1,8 @@
 package Number;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Numeric_Question {
@@ -125,7 +127,7 @@ public class Numeric_Question {
 
         String[] part = s.trim().split("\\s+");
         ArrayList<String> x = new ArrayList<>();
-        for(int i = part.length - 1; i> 0; i--){
+        for(int i = part.length - 1; i>= 0; i--){
             x.add(part[i]);
         }
         String str = String.join(" ", x);
@@ -133,8 +135,23 @@ public class Numeric_Question {
         
     }
 
+    public static String multiply(String num1, String num2) {
+
+        return num1;
+        
+    }
+
+    public static int findMin(int[] nums) {
+
+        Arrays.sort(nums);
+
+        return nums[0];
+        
+    }
+
     public static void main(String[] args) {
-        String x = reverseWords("the sky is blue");
+        int[] n ={3,4,5,1,2};
+        int x = findMin(n);
         System.out.println(x);
         
     }
