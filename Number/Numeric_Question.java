@@ -145,11 +145,39 @@ public class Numeric_Question {
         return num1 + num2;
     }
 
+    public static int subArray(int[] nums, int start, int end,int sum){
+        int y = 0;
+        if(end == nums.length){
+            return sum;
+        }
+        if(start > end){
+            return subArray(nums, 0, end+1,sum);
+        }else{
+            for (int i = start; i <= end; i++){
+
+                 y += nums[i];
+               
+            }
+            if(sum < y){
+                sum = y;
+            }
+          
+         return subArray(nums, start+1, end,sum);
+
+        }
+    }
+    public static int maxSubArray(int[] nums) {
+
+       return subArray(nums, 0, 0, 0);
+    }
    
 
     public static void main(String[] args) {
-        int[] n ={3,4,5,1,2};
-        int x = sum(12,14);
+        int[] n ={-1};
+     
+        int x = subArray(n, 0, 0,Integer.MIN_VALUE);
+
+        // int x = sum(12,14);
         System.out.println(x);
         
     }
