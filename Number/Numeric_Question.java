@@ -141,17 +141,15 @@ public class Numeric_Question {
         
     }
 
-    public static int findMin(int[] nums) {
-
-        Arrays.sort(nums);
-
-        return nums[0];
-        
+    public static int sum(int num1, int num2) {
+        return num1 + num2;
     }
+
+   
 
     public static void main(String[] args) {
         int[] n ={3,4,5,1,2};
-        int x = findMin(n);
+        int x = sum(12,14);
         System.out.println(x);
         
     }
