@@ -3,6 +3,8 @@ package Number;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 
 public class Numeric_Question {
@@ -154,31 +156,55 @@ public class Numeric_Question {
             return subArray(nums, 0, end+1,sum);
         }else{
             for (int i = start; i <= end; i++){
-
                  y += nums[i];
-               
             }
             if(sum < y){
                 sum = y;
-            }
-          
+            }      
          return subArray(nums, start+1, end,sum);
 
         }
     }
     public static int maxSubArray(int[] nums) {
-
        return subArray(nums, 0, 0, 0);
+    }
+
+    public static int[] intersection(int[] nums1, int[] nums2) {
+
+       
+        HashSet<Integer> list = new HashSet<>();
+
+        for(int i = 0; i<nums1.length; i++){
+            for(int j =0; j<nums2.length; j++){
+                if(nums1[i] == nums2[j]){
+                    list.add(nums1[i]);
+                }
+            }
+        }
+
+        int[] res = new int[list.size()];
+        int i = 0;
+        for(int s : list){
+            res[i++]=s;
+        }
+       
+
+        return res;
+        
     }
    
 
     public static void main(String[] args) {
-        int[] n ={-1};
+        int[] n1 ={4,9,5};
+        int[] n2 ={9,4,9,8,4};
      
-        int x = subArray(n, 0, 0,Integer.MIN_VALUE);
+        int[] x = intersection(n1,n2);
+        for(int s : x){
+            System.out.println(s);
+        }
 
         // int x = sum(12,14);
-        System.out.println(x);
+        // System.out.println(x);
         
     }
     
