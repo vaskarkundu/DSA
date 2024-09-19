@@ -80,15 +80,7 @@ public class Numeric_Question {
         
     }
 
-    // public List<Integer> selfDividingNumbers(int left, int right) {
-    //     List<Integer> seftDividing = new ArrayList<>();
-
-    //     for(int i = left; i<=right; i++){
-    //         if(i % 10)
-    //     }
-
-    //     return seftDividing;
-    // }
+   
 
     public static String addStrings(String num1, String num2) {
         if (num1.length() < num2.length()) {
@@ -97,13 +89,13 @@ public class Numeric_Question {
             num2 = temp;
         }
 
-        // Initialize the result and carry
+       
         StringBuilder result = new StringBuilder();
         int carry = 0;
         int length1 = num1.length();
         int length2 = num2.length();
 
-        // Add digits from the end to the beginning
+       
         for (int i = 0; i < length1; i++) {
             int digit1 = num1.charAt(length1 - 1 - i) - '0';
             int digit2 = i < length2 ? num2.charAt(length2 - 1 - i) - '0' : 0;
@@ -112,7 +104,7 @@ public class Numeric_Question {
             result.append(sum % 10);
         }
 
-        // If there's a carry left, add it
+       
         if (carry > 0) {
             result.append(carry);
         }
@@ -236,27 +228,24 @@ public class Numeric_Question {
     public static boolean checkIfExist(int[] arr) {
 
         for(int i = 0; i<arr.length; i++){
-            for(int j = 0; j<arr.length; j++){
-               
+            for(int j = 0; j<arr.length; j++){   
                 if (i != j) {
                     if (arr[i] == 2 * arr[j] || arr[j] == 2 * arr[i]) {
                         return true;
                     }
                 }
-            }
+             }
         }
-
         return false;
-        
     }
-   
+
+    public static int daysBetweenDates(String date1, String date2) {
+        return 0;
+    }
 
     public static void main(String[] args) {
         int[] n1 ={7,1,14,11};
-       
-     
         boolean x = checkIfExist(n1);
-       
         System.out.println(x);
         
     }
