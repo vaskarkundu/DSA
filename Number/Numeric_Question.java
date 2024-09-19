@@ -192,13 +192,69 @@ public class Numeric_Question {
         return res;
         
     }
+
+    public static boolean isAvaiable(int[] arr, int tar){
+        int low = 0;
+        int high = arr.length - 1;
+        while (low <= high) {
+            int mid = low + (high -low)/2;
+            if(arr[mid] == tar){
+                return true;
+            }
+            if(arr[mid] < tar){
+                low = mid + 1;
+
+            }else{
+                high = mid -1;
+            }
+            
+        }
+        return false;
+    }
+
+    public static int[] intersect(int[] nums1, int[] nums2) {
+        // Arrays.sort(nums2);
+        // ArrayList<Integer> list = new ArrayList<>();
+        // for(int i = 0; i<nums1.length; i++){
+        //   if(isAvaiable(nums2, nums1[i])){
+           
+        //      list.add(nums1[i]);
+        //   }
+        // }
+        // int[] res = new int[list.size()];
+        // int i = 0;
+        // for(int s : list){
+        //     res[i++]=s;
+        // }
+        
+        // return res;
+
+        HashSet<Integer> list = new HashSet<>();
+
+        for(int i = 0; i<nums1.length; i++){
+            for(int j =0; j<nums2.length; j++){
+                if(nums1[i] == nums2[j]){
+                    list.add(nums1[i]);
+                }
+            }
+        }
+
+        int[] res = new int[list.size()];
+        int i = 0;
+        for(int s : list){
+            res[i++]=s;
+        }
+       
+
+        return res;
+    }
    
 
     public static void main(String[] args) {
-        int[] n1 ={4,9,5};
-        int[] n2 ={9,4,9,8,4};
+        int[] n1 ={1,2,2,1};
+        int[] n2 ={2,2};
      
-        int[] x = intersection(n1,n2);
+        int[] x = intersect(n1,n2);
         for(int s : x){
             System.out.println(s);
         }
@@ -209,3 +265,5 @@ public class Numeric_Question {
     }
     
 }
+
+
