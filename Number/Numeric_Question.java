@@ -213,40 +213,24 @@ public class Numeric_Question {
     }
 
     public static int[] intersect(int[] nums1, int[] nums2) {
-        // Arrays.sort(nums2);
-        // ArrayList<Integer> list = new ArrayList<>();
-        // for(int i = 0; i<nums1.length; i++){
-        //   if(isAvaiable(nums2, nums1[i])){
-           
-        //      list.add(nums1[i]);
-        //   }
-        // }
-        // int[] res = new int[list.size()];
-        // int i = 0;
-        // for(int s : list){
-        //     res[i++]=s;
-        // }
-        
-        // return res;
-
-        HashSet<Integer> list = new HashSet<>();
-
+        Arrays.sort(nums2);
+        ArrayList<Integer> list = new ArrayList<>();
         for(int i = 0; i<nums1.length; i++){
-            for(int j =0; j<nums2.length; j++){
-                if(nums1[i] == nums2[j]){
-                    list.add(nums1[i]);
-                }
-            }
+          if(isAvaiable(nums2, nums1[i])){
+           
+             list.add(nums1[i]);
+          }
         }
-
         int[] res = new int[list.size()];
         int i = 0;
         for(int s : list){
             res[i++]=s;
         }
-       
-
+        
         return res;
+
+       
+       
     }
 
     public static boolean checkIfExist(int[] arr) {
