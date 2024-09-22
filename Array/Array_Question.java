@@ -1,7 +1,5 @@
 package Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 import java.lang.reflect.Array;
 
@@ -72,16 +70,34 @@ public class Array_Question {
         Arrays.sort(arrTwo);
         return Arrays.equals(arOne, arrTwo);
     }
+
+    public static double trimMean(int[] arr) {
+        Arrays.sort(arr);
+        int removeCount = (arr.length * 5) / 100;
+        ArrayList<Integer> x = new ArrayList<>();
+        double total = 0;
+        for(int i = removeCount; i<arr.length - removeCount; i++){
+            x.add(arr[i]);
+            total += arr[i];
+        }
+        double res = total / x.size();
+
+        return res;
+        
+    }
     public static void main(String[] args) {
-        // System.out.println("done");
-        // int[][] arr = {
-        //     {1, 2, 4},
-        //     {3, 3, 1}
-        // };;
-        // int x=deleteGreatestValue(arr);
-        String[] w = {"a","b","c","d","e"};
-        List<String> c =removeAnagrams(w);
-        System.out.println(c);
+        // // System.out.println("done");
+        // // int[][] arr = {
+        // //     {1, 2, 4},
+        // //     {3, 3, 1}
+        // // };;
+        // // int x=deleteGreatestValue(arr);
+        // String[] w = {"a","b","c","d","e"};
+        // List<String> c =removeAnagrams(w);
+        // System.out.println(c);
+        int[] arr = {6,0,7,0,7,5,7,8,3,4,0,7,8,1,6,8,1,1,2,4,8,1,9,5,4,3,8,5,10,8,6,6,1,0,6,10,8,2,3,4};
+
+        trimMean(arr);
         
     }
 }
