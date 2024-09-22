@@ -240,12 +240,26 @@ public class Numeric_Question {
     }
 
     public static int daysBetweenDates(String date1, String date2) {
+        String[] one = date1.split("-");
+        String[] two = date2.split("-");
+        ArrayList<Integer> list = new ArrayList<>();
+        int first = 0;
+        while (first < one.length) {
+            System.out.println(one[first]);
+            System.out.println(two[first]);
+            int x = Math.abs(Integer.parseInt(one[first]) - Integer.parseInt(two[first]));
+            list.add(x);
+            
+            first++;            
+        }
+        System.out.println(list);
+        // date1 = "2020-01-15", date2 = "2019-12-31" ==> 15 days
         return 0;
     }
 
     public static void main(String[] args) {
         int[] n1 ={7,1,14,11};
-        boolean x = checkIfExist(n1);
+        int x = daysBetweenDates("2020-01-15","2019-12-31");
         System.out.println(x);
         
     }
