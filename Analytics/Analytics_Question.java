@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 
 public class Analytics_Question {
-
+    // 2481. Minimum Cuts to Divide a Circle
     public static int numberOfCuts(int n) {
 
         int x = 1 + (n*(n+1))/2;
@@ -21,7 +21,6 @@ public class Analytics_Question {
 
         Arrays.sort(nums);
         HashSet<Double> li = new HashSet<>();
-       
         int left = 0;
         int right = nums.length - 1;
         while (left < right) {
@@ -29,7 +28,6 @@ public class Analytics_Question {
            li.add(avg);
            left++;
            right--;
-            
         }
         return li.size();
     }
