@@ -85,48 +85,41 @@ public class Array_Question {
         return res;
         
     }
-    public static void chekTime(int max,int nor, int less,int time){
-        if(max <= 0){
-            System.out.println(time);
-            return;
+    public static int chekTime(int max,int nor, int less,int time){
+        if(max <= 0 && nor <= 0 && less <=0){
+            return time;
         }
-        
-        if (max > 0 && less > 0) {
-            chekTime(max -1, nor, less - 1, time + 1);
-        } else if (nor > 0 && max > 0) {
-            chekTime(max - 1, nor - 1, less, time + 1);
-        } else if (max > 0) {
-            chekTime(max - 1, nor, less, time + 1);
+
+        int[] amount = {max,nor,less};
+
+        Arrays.sort(amount);
+
+        if(amount[2] > 0 && amount[1] > 0){
+            return chekTime(amount[2]-1, amount[1]-1, amount[0], time+1);
+
+        }else if(amount[2] > 0){
+            return chekTime(amount[2]-1, amount[1], amount[0], time+1);
         }
-        
+
+        return time;
 
     }
     // 2335. Minimum Amount of Time to Fill Cups
     public static int fillCups(int[] amount) {
 
         Arrays.sort(amount);
-        chekTime(amount[2], amount[1], amount[0], 0);
-
-        // int max = amount[0];
-        // for(int i =0; i<amount.length; i++){
-        //     if(max < amount[i]){
-        //         max = amount[i];
-        //     }
-        // }
-
-
-
-      
-
-       
         
 
-        return 0;
+        return chekTime(amount[2], amount[1], amount[0], 0);
         
     }
+    // 1+1+1+1
     public static void main(String[] args) {
-        int [] n ={5,4,4};
-        fillCups(n);
+        // c , w, h
+        int [] n ={1,4,2};
+
+         int x =fillCups(n);
+         System.out.println(x);
         // // System.out.println("done");
         // // int[][] arr = {
         // //     {1, 2, 4},
