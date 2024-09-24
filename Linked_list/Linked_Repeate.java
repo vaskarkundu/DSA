@@ -35,6 +35,20 @@ public class Linked_Repeate {
     }
 
     // add last
+
+    public void addLast(String data){
+        Node x = new Node(data);
+        if(head == null){
+            head =x;
+            return;
+        }
+        Node curr = head;
+        while (curr.next != null) {
+            curr = curr.next;
+            
+        }
+        curr.next = x;
+    }
     
 
     public static void main(String[] args) {
