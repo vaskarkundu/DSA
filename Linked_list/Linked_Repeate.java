@@ -30,6 +30,7 @@ public class Linked_Repeate {
         }
         x.next = head;
         head = x;
+       
 
 
     }
@@ -78,8 +79,31 @@ public class Linked_Repeate {
         curr.next = null;
     }
 
+    // print List
+    public void printList(){
+        Node curr = head;
+        if(curr == null){
+            System.out.println("List is empty");
+            return;
+        }
+        while (curr != null) {
+            
+            System.out.println(curr.data + "->");
+            curr = curr.next;
+            
+        }
+
+        System.out.println("NULL");
+    }
+
+    // get first element
+
 
     public static void main(String[] args) {
+        Linked_Repeate LL = new Linked_Repeate();
+        LL.addFirst("I");
+        LL.addLast("LO");
+        LL.printList();
         
     }
 }
