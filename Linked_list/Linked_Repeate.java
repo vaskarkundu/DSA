@@ -49,7 +49,16 @@ public class Linked_Repeate {
         }
         curr.next = x;
     }
-    
+    //  remove first
+
+    public void removeFast(){
+        if(head == null){
+            System.out.println("Linked List is empty");
+            return;
+        }
+        head.next = head;
+    }
+
 
     public static void main(String[] args) {
         
