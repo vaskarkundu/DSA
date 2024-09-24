@@ -59,6 +59,25 @@ public class Linked_Repeate {
         head.next = head;
     }
 
+    // remove last
+    public void removeLast(){
+        Node curr = head;
+        if(curr == null){
+            System.out.println("Linked List is empty");
+            return;
+        }
+        if(curr.next == null){
+            curr = null;
+            return;
+
+        }
+
+        while (curr.next.next != null) {
+            curr = curr.next;
+        }
+        curr.next = null;
+    }
+
 
     public static void main(String[] args) {
         
