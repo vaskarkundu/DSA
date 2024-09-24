@@ -122,14 +122,28 @@ public class Linked_Repeate {
         System.out.println("last element ->"+head.data);
     }
 
+    // get size
+    public void getSize(){
+        
+         int size = 0;
+        while (head != null) {
+            size++;
+            head = head.next;
+            
+        }
+        System.out.println("size ->"+size);
+    }
+
 
     public static void main(String[] args) {
         Linked_Repeate LL = new Linked_Repeate();
         LL.addFirst("I");
         LL.addLast("LO");
         LL.addLast("you");
-        LL.getFirst();
+        LL.removeLast();
+        // LL.getFirst();
         LL.getLast();
+        LL.getSize();
         
     }
 }
