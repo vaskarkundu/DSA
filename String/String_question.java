@@ -236,17 +236,44 @@ public class String_question {
        
     }
 
+    // I can be placed before V (5) and X (10) to make 4 and 9. 
+    // X can be placed before L (50) and C (100) to make 40 and 90. 
+    // C can be placed before D (500) and M (1000) to make 400 and 900.
+
+    public static int romanToInt(String s) {
+        HashMap<String, Integer> map = new HashMap<>();
+        map.put("I", 1);
+        map.put("V", 5);
+        map.put("X", 10);
+        map.put("L", 50);
+        map.put("C", 100);
+        map.put("D", 500);
+        map.put("M", 1000);
+
+        String [] x = s.split("");
+        int n =0;
+        String old = "";
+        for(int i= x.length - 1; i>=0;i--){
+           
+            if(old.equals("V") && x[i].equals("I") || old.equals("X") && x[i].equals("I") || old.equals("L") && x[i].equals("X") ||old.equals("C") && x[i].equals("X") || old.equals("D") && x[i].equals("C") || old.equals("M") && x[i].equals("C")){
+                n -= map.get(x[i]);
+            }else{
+                n +=map.get(x[i]);
+            }
+            
+
+            old = x[i];
+        }
+      
+        return n;
+    }
+
+    
+
     public static void main(String[] args) {
 
-        String sem = "the cattle was rattled by the battery";
-        List<String> myList = new ArrayList<>(Arrays.asList("catt","cat","bat","rat"));
-
-      
-        String x = replaceWords(myList,sem);
-        // for(String s : x){
-
-        // }
-        System.out.println(x);
+       int x = romanToInt("MCMXCIV");
+       System.out.println(x);
     
     }
     
