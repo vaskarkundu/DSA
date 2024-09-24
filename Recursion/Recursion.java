@@ -237,9 +237,43 @@ public class Recursion {
         }
     }
 
+    public static int climbStairsRecursion(int n ){
+
+          if(n == 1) return 1;
+          if(n == 2) return 2;
+
+          return climbStairsRecursion(n-2) + climbStairsRecursion(n-1);
+
+    }
+
+    public static int climbStairs(int n ){
+
+        if(n == 1) return 1;
+        if(n == 2) return 2;
+
+       int res =0;
+       int first = 1;
+       int second = 2;
+       for(int i =3; i <= n; i++){
+        res = first + second;
+        first = second;
+        second = res;
+       }
+
+       return res;
+
+  }
+
+    
+
+
+   
+
 
     public static void main(String[] args) {
-        printFComb("23", 0,"");
+        int x = climbStairs(19);
+        System.out.println(x);
+        // printFComb("23", 0,"");
         // HashSet<String> set = new HashSet<>();
         // uniqueSubsequnce("aaa", 0,"", set);
         // subsequence("abc", 0,"");
