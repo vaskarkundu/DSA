@@ -98,12 +98,22 @@ public class Linked_Repeate {
 
     // get first element
 
+    public void getFirst(){
+        if(head == null){
+            System.out.println("linked list is empty");
+            return;
+        }
+        System.out.println(head.data);
+    }
+
+    
+
 
     public static void main(String[] args) {
         Linked_Repeate LL = new Linked_Repeate();
         LL.addFirst("I");
         LL.addLast("LO");
-        LL.printList();
+        LL.getFirst();
         
     }
 }
