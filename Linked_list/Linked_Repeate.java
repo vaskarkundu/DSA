@@ -103,17 +103,33 @@ public class Linked_Repeate {
             System.out.println("linked list is empty");
             return;
         }
-        System.out.println(head.data);
+        System.out.println("first element ->"+head.data);
     }
 
-    
+    // get last elemnt
+    public void getLast(){
+        if(head == null){
+          System.out.println("Linked List is empty");
+        }
+        if(head.next == null){
+            System.out.println("Last element ->"+head.data);
+
+        }
+        while (head.next != null) {
+             head = head.next;
+            
+        }
+        System.out.println("last element ->"+head.data);
+    }
 
 
     public static void main(String[] args) {
         Linked_Repeate LL = new Linked_Repeate();
         LL.addFirst("I");
         LL.addLast("LO");
+        LL.addLast("you");
         LL.getFirst();
+        LL.getLast();
         
     }
 }
