@@ -248,8 +248,8 @@ public class Recursion {
 
     public static int climbStairs(int n ){
 
-        if(n == 1) return 1;
-        if(n == 2) return 2;
+       if(n == 1) return 1;
+       if(n == 2) return 2;
 
        int res =0;
        int first = 1;
