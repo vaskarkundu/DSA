@@ -134,16 +134,37 @@ public class Linked_Repeate {
         System.out.println("size ->"+size);
     }
 
+    public void reverseList(){
+        if(head == null || head.next == null){
+            return;
+        }
+
+        Node pre = head;
+        Node curr = head.next;
+        while (curr != null) {
+            Node nexNode = curr.next;
+            curr.next = pre;
+            pre = curr;
+            curr = nexNode;
+            
+        }
+
+        head.next = null;
+        head = pre;
+    }
+
 
     public static void main(String[] args) {
         Linked_Repeate LL = new Linked_Repeate();
         LL.addFirst("I");
         LL.addLast("LO");
         LL.addLast("you");
-        LL.removeLast();
+        LL.reverseList();
+        LL.printList();
+        // LL.removeLast();
         // LL.getFirst();
-        LL.getLast();
-        LL.getSize();
+        // LL.getLast();
+        // LL.getSize();
         
     }
 }
