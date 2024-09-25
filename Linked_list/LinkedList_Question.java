@@ -12,13 +12,16 @@ public class LinkedList_Question {
          }
 
 
+    // need to swap between pair ; if odd comes then remain last one will be single
+//     Input: head = [1,2,3,4]  = [] =[1]
+// Output: [2,1,4,3]= [] = [1]
     public ListNode swapPairs(ListNode head) {
 
         return head;
         
     }
 
-//     Input: head = [1,2,3,4,5], n = 2
+// Input: head = [1,2,3,4,5], n = 2
 // Output: [1,2,3,5]
 
 public ListNode removeNthFromEnd(ListNode head, int n) {
@@ -54,6 +57,35 @@ public ListNode removeNthFromEnd(ListNode head, int n) {
     return head;
         
 }
+
+
+// reverse the linked list
+// Input: head = [1,2,3,4,5]
+// Output: [5,4,3,2,1]
+
+    public static ListNode reverseList(ListNode head) {
+    
+
+        return head;
+    }
+
+        // Given the head of a singly linked list and two integers left and right where left <= right, reverse the nodes of the list from position left to position right, and return the reversed list.
+        // Input: head = [1,2,3,4,5], left = 2, right = 4
+        // Output: [1,4,3,2,5]
+        // Example 2:
+
+        // Input: head = [5], left = 1, right = 1
+        // Output: [5]
+        // Reverse Linked List - II
+        public ListNode reverseBetween(ListNode head, int left, int right) {
+                return head;
+        }
+     
+
+        // Check if a Linked List is a palindrome ==> try to solve it by own
+
+        // Detecting Loop in a Linked List.  ==  
+
 
 
 
