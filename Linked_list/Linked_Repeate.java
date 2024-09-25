@@ -167,7 +167,11 @@ public class Linked_Repeate {
         h =h.next;
     }
     int i = 1;
-    int n = len - 4;
+    int n = len - 2;
+    if (len == n) {
+        head = head.next;
+        return;
+    }
     Node pre = head;
     Node curr = head.next;
     while (i < n) {
@@ -190,9 +194,9 @@ public class Linked_Repeate {
         Linked_Repeate LL = new Linked_Repeate();
         LL.addFirst("1");
         LL.addLast("2");
-        LL.addLast("3");
-        LL.addLast("4");
-        LL.addLast("5");
+        // LL.addLast("3");
+        // LL.addLast("4");
+        // LL.addLast("5");
         LL.removeNthFromEnd();
        
         // LL.reverseList();
