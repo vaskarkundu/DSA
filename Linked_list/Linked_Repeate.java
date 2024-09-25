@@ -156,8 +156,18 @@ public class Linked_Repeate {
     }
 
     public void removeNthFromEnd() {
-    int i = 0;
-    int n = 2;
+    if(head == null || head.next == null){
+        head = null;
+        return;
+    }
+    Node h = head;
+    int len =0;
+    while (h != null) {
+        len++;
+        h =h.next;
+    }
+    int i = 1;
+    int n = len - 4;
     Node pre = head;
     Node curr = head.next;
     while (i < n) {

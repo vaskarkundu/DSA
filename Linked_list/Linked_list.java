@@ -4,7 +4,7 @@ public class Linked_list {
 
     Node head;
     
-    class Node{
+    class Node {
         String data;
         Node next;
         Node (String data){
@@ -19,7 +19,6 @@ public class Linked_list {
         if(head == null){
             head = newNode;
             return;
-
         }
         newNode.next = head;
         head = newNode;
@@ -30,7 +29,6 @@ public class Linked_list {
         if(head == null){
             head = newNode;
             return;
-
         }
 
         Node current = head;
