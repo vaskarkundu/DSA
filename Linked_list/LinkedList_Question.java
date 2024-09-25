@@ -22,7 +22,11 @@ public class LinkedList_Question {
 // Output: [1,2,3,5]
 
 public ListNode removeNthFromEnd(ListNode head, int n) {
-    int i = 0;
+    if(head == null || head.next == null){
+        head = null;
+        return head;
+    }
+    
     ListNode pre = head;
     ListNode curr = head.next;
     int len = 0;
@@ -30,6 +34,7 @@ public ListNode removeNthFromEnd(ListNode head, int n) {
         len++;
       
     }
+    int i = 0;
     int x = len - n;
     while (i < x - 1) {
 
