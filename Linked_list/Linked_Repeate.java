@@ -1,5 +1,7 @@
 package Linked_list;
 
+import Linked_list.LinkedList_Question.ListNode;
+
 // addFirst(E e) - Inserts the element at the front of the list.
 // addLast(E e) - Inserts the element at the end of the list (same as add()).
 // removeFirst() - Removes and returns the first element.
@@ -153,13 +155,37 @@ public class Linked_Repeate {
         head = pre;
     }
 
+    public void removeNthFromEnd() {
+    int i = 0;
+    int n = 2;
+    Node pre = head;
+    Node curr = head.next;
+    while (i < n) {
+        pre = pre.next;
+        curr = curr.next;
+        i++;
+    }
+    pre.next = curr.next;
+    
+    // System.out.println(pre.data);
+    // System.out.println(curr.data);
+
+
+    // return head;
+        
+}
+
 
     public static void main(String[] args) {
         Linked_Repeate LL = new Linked_Repeate();
-        LL.addFirst("I");
-        LL.addLast("LO");
-        LL.addLast("you");
-        LL.reverseList();
+        LL.addFirst("1");
+        LL.addLast("2");
+        LL.addLast("3");
+        LL.addLast("4");
+        LL.addLast("5");
+        LL.removeNthFromEnd();
+       
+        // LL.reverseList();
         LL.printList();
         // LL.removeLast();
         // LL.getFirst();
