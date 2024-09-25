@@ -1,8 +1,8 @@
 package Analytics;
 
-import java.util.ArrayList;
+// import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
+// import java.util.HashMap;
 import java.util.HashSet;
 
 public class Analytics_Question {
@@ -36,10 +36,10 @@ public class Analytics_Question {
     
 
     public static void main(String[] args) {
-        int[] n= {9,5,7,8,7,9,8,2,0,7};
-        int d = distinctAverages(n);
-        System.out.println(d);
-
+        // int[] n= {9,5,7,8,7,9,8,2,0,7};
+        // int d = distinctAverages(n);
+        // System.out.println(d);
+        System.out.println("aion hi");
         // numberOfCuts(3);
         
     }
