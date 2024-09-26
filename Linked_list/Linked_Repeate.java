@@ -154,7 +154,7 @@ public class Linked_Repeate {
         head.next = null;
         head = pre;
     }
-
+     
     public void removeNthFromEnd() {
     if(head == null || head.next == null){
         head = null;
@@ -181,23 +181,51 @@ public class Linked_Repeate {
     }
     pre.next = curr.next;
     
-    // System.out.println(pre.data);
-    // System.out.println(curr.data);
-
-
-    // return head;
+ 
         
 }
+
+        public void swapPairs() {
+            
+            if(head == null || head.next == null){
+                return;
+            }
+            Node newHead = head.next;
+            Node pre = head;
+            Node curr = head.next;
+            while (true) {
+                Node nexNode = curr.next;
+                curr.next = pre;
+                
+
+                if (nexNode == null || nexNode.next == null) {
+                    pre.next = nexNode;
+                    break;
+                }
+
+                pre.next = nexNode.next;
+                pre = nexNode;
+                curr = pre.next;
+            }
+            head = newHead;
+
+            
+        }
 
 
     public static void main(String[] args) {
         Linked_Repeate LL = new Linked_Repeate();
         LL.addFirst("1");
         LL.addLast("2");
-        // LL.addLast("3");
-        // LL.addLast("4");
+        LL.addLast("3");
+        LL.addLast("4");
+        LL.addLast("5");
+        LL.addLast("6");
+        LL.addLast("7");
+        // LL.addLast("8");
+        LL.swapPairs();
         // LL.addLast("5");
-        LL.removeNthFromEnd();
+        // LL.removeNthFromEnd();
        
         // LL.reverseList();
         LL.printList();
