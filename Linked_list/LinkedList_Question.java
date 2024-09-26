@@ -17,6 +17,27 @@ public class LinkedList_Question {
 // Output: [2,1,4,3]= [] = [1]
     public ListNode swapPairs(ListNode head) {
 
+        if(head == null || head.next == null){
+            return head;
+        }
+        ListNode newHead = head.next;
+        ListNode pre = head;
+        ListNode curr = head.next;
+
+        while (true) {
+            ListNode nexNode = curr.next;
+            curr.next = pre;
+
+            if(curr == null || curr.next == null){
+                pre.next = nexNode;
+                break;
+            }
+            pre.next = nexNode.next;
+            pre.next = nexNode;
+            curr = pre.next;
+            
+        }
+
         return head;
         
     }
