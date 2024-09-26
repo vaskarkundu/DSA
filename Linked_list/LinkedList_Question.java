@@ -64,8 +64,21 @@ public ListNode removeNthFromEnd(ListNode head, int n) {
 // Output: [5,4,3,2,1]
 
     public static ListNode reverseList(ListNode head) {
-    
+        if(head == null || head.next == null){
+            return head;
+        }
+        ListNode pre = head;
+        ListNode curr = head.next;
 
+        while (curr != null) {
+            ListNode nex = curr.next;
+            curr.next = pre;
+            pre = curr;
+            curr = nex; 
+        }
+        head.next = null;
+        head = pre;
+    
         return head;
     }
 
