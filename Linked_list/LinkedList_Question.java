@@ -28,7 +28,7 @@ public class LinkedList_Question {
             ListNode nexNode = curr.next;
             curr.next = pre;
 
-            if(curr == null || curr.next == null){
+            if(nexNode == null || nexNode.next == null){
                 pre.next = nexNode;
                 break;
             }
