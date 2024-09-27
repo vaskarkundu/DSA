@@ -12,10 +12,11 @@ import Linked_list.LinkedList_Question.ListNode;
 public class Linked_Repeate {
     Node head;
 
-    class Node{
+    class Node {
         String data;
         Node next;
-        Node(String data){
+
+        Node(String data) {
             this.data = data;
             this.next = null;
         }
@@ -24,38 +25,36 @@ public class Linked_Repeate {
 
     // add first
 
-    public void addFirst(String data){
+    public void addFirst(String data) {
         Node x = new Node(data);
-        if(head == null){
+        if (head == null) {
             head = x;
             return;
         }
         x.next = head;
         head = x;
-       
-
 
     }
 
     // add last
 
-    public void addLast(String data){
+    public void addLast(String data) {
         Node x = new Node(data);
-        if(head == null){
-            head =x;
+        if (head == null) {
+            head = x;
             return;
         }
         Node curr = head;
         while (curr.next != null) {
             curr = curr.next;
-            
+
         }
         curr.next = x;
     }
-    //  remove first
+    // remove first
 
-    public void removeFast(){
-        if(head == null){
+    public void removeFast() {
+        if (head == null) {
             System.out.println("Linked List is empty");
             return;
         }
@@ -63,13 +62,13 @@ public class Linked_Repeate {
     }
 
     // remove last
-    public void removeLast(){
+    public void removeLast() {
         Node curr = head;
-        if(curr == null){
+        if (curr == null) {
             System.out.println("Linked List is empty");
             return;
         }
-        if(curr.next == null){
+        if (curr.next == null) {
             curr = null;
             return;
 
@@ -82,17 +81,17 @@ public class Linked_Repeate {
     }
 
     // print List
-    public void printList(){
+    public void printList() {
         Node curr = head;
-        if(curr == null){
+        if (curr == null) {
             System.out.println("List is empty");
             return;
         }
         while (curr != null) {
-            
+
             System.out.println(curr.data + "->");
             curr = curr.next;
-            
+
         }
 
         System.out.println("NULL");
@@ -100,44 +99,44 @@ public class Linked_Repeate {
 
     // get first element
 
-    public void getFirst(){
-        if(head == null){
+    public void getFirst() {
+        if (head == null) {
             System.out.println("linked list is empty");
             return;
         }
-        System.out.println("first element ->"+head.data);
+        System.out.println("first element ->" + head.data);
     }
 
     // get last elemnt
-    public void getLast(){
-        if(head == null){
-          System.out.println("Linked List is empty");
+    public void getLast() {
+        if (head == null) {
+            System.out.println("Linked List is empty");
         }
-        if(head.next == null){
-            System.out.println("Last element ->"+head.data);
+        if (head.next == null) {
+            System.out.println("Last element ->" + head.data);
 
         }
         while (head.next != null) {
-             head = head.next;
-            
+            head = head.next;
+
         }
-        System.out.println("last element ->"+head.data);
+        System.out.println("last element ->" + head.data);
     }
 
     // get size
-    public void getSize(){
-        
-         int size = 0;
+    public void getSize() {
+
+        int size = 0;
         while (head != null) {
             size++;
             head = head.next;
-            
+
         }
-        System.out.println("size ->"+size);
+        System.out.println("size ->" + size);
     }
 
-    public void reverseList(){
-        if(head == null || head.next == null){
+    public void reverseList() {
+        if (head == null || head.next == null) {
             return;
         }
 
@@ -148,91 +147,141 @@ public class Linked_Repeate {
             curr.next = pre;
             pre = curr;
             curr = nexNode;
-            
+
         }
 
         head.next = null;
         head = pre;
     }
-     
+
     public void removeNthFromEnd() {
-    if(head == null || head.next == null){
-        head = null;
-        return;
-    }
-    Node h = head;
-    int len =0;
-    while (h != null) {
-        len++;
-        h =h.next;
-    }
-    int i = 1;
-    int n = len - 2;
-    if (len == n) {
-        head = head.next;
-        return;
-    }
-    Node pre = head;
-    Node curr = head.next;
-    while (i < n) {
-        pre = pre.next;
-        curr = curr.next;
-        i++;
-    }
-    pre.next = curr.next;
-    
- 
-        
-}
+        if (head == null || head.next == null) {
+            head = null;
+            return;
+        }
+        Node h = head;
+        int len = 0;
+        while (h != null) {
+            len++;
+            h = h.next;
+        }
+        int i = 1;
+        int n = len - 2;
+        if (len == n) {
+            head = head.next;
+            return;
+        }
+        Node pre = head;
+        Node curr = head.next;
+        while (i < n) {
+            pre = pre.next;
+            curr = curr.next;
+            i++;
+        }
+        pre.next = curr.next;
 
-        public void swapPairs() {
-            
-            if(head == null || head.next == null){
-                return;
+    }
+
+    public void swapPairs() {
+
+        if (head == null || head.next == null) {
+            return;
+        }
+        Node newHead = head.next;
+        Node pre = head;
+        Node curr = head.next;
+        while (true) {
+            Node nexNode = curr.next;
+            curr.next = pre;
+
+            if (nexNode == null || nexNode.next == null) {
+                pre.next = nexNode;
+                break;
             }
-            Node newHead = head.next;
-            Node pre = head;
-            Node curr = head.next;
-            while (true) {
-                Node nexNode = curr.next;
-                curr.next = pre;
-                
 
-                if (nexNode == null || nexNode.next == null) {
-                    pre.next = nexNode;
-                    break;
-                }
+            pre.next = nexNode.next;
+            pre = nexNode;
+            curr = pre.next;
+        }
+        head = newHead;
 
-                pre.next = nexNode.next;
-                pre = nexNode;
-                curr = pre.next;
-            }
-            head = newHead;
+    }
 
-            
+    public void isPilindromic() {
+        Node oldHead = new Node(head.data);
+        Node current = head.next;
+        Node temp = oldHead;
+
+        while (current != null) {
+
+            temp.next = new Node(current.data);
+            temp = temp.next;
+            current = current.next;
+
         }
 
+        if (head == null || head.next == null) {
+            System.out.println(true);
+            return;
+        }
+
+        Node pre = head;
+        Node curr = head.next;
+        while (curr != null) {
+            Node newNode = curr.next;
+            curr.next = pre;
+            pre = curr;
+
+            curr = newNode;
+
+        }
+        head.next = null;
+        head = pre;
+
+        while (oldHead != null && head != null) {
+            // System.out.println("old" + oldHead.data);
+            // System.out.println("head" + head.data);
+
+            // if (!oldHead.data.equals(head.data)) {
+            // // System.out.println(true);
+            // }
+
+            if (!oldHead.data.equals(head.data)) {
+                System.out.println(false);
+                return;
+            }
+            oldHead = oldHead.next;
+            head = head.next;
+
+        }
+
+        System.out.println(true);
+
+    }
 
     public static void main(String[] args) {
         Linked_Repeate LL = new Linked_Repeate();
-        LL.addFirst("1");
+        // LL.addFirst("1");
+        LL.addLast("1");
         LL.addLast("2");
         LL.addLast("3");
-        LL.addLast("4");
-        LL.addLast("5");
-        LL.addLast("6");
-        LL.addLast("7");
+        // LL.addLast("3");
+        LL.addLast("1");
+        // LL.addLast("4");
+        // LL.addLast("5");
+        // LL.addLast("6");
+        // LL.addLast("7");
         // LL.addLast("8");
-        LL.swapPairs();
+        LL.isPilindromic();
         // LL.addLast("5");
         // LL.removeNthFromEnd();
-       
+
         // LL.reverseList();
-        LL.printList();
+        // LL.printList();
         // LL.removeLast();
         // LL.getFirst();
         // LL.getLast();
         // LL.getSize();
-        
+
     }
 }
