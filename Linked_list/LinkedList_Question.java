@@ -33,10 +33,12 @@ public class LinkedList_Question {
                 break;
             }
             pre.next = nexNode.next;
-            pre.next = nexNode;
+            pre = nexNode;
             curr = pre.next;
             
         }
+
+        head = newHead;
 
         return head;
         
