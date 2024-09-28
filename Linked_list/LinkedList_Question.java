@@ -161,6 +161,24 @@ public ListNode removeNthFromEnd(ListNode head, int n) {
 
 
 
+        // 
+        public boolean hasCycle(ListNode head) {
+            return true;
+        }
+
+        // remove all the duplicates number from a sorted linked list which can appears once
+
+        public ListNode deleteDuplicatesOne(ListNode head) {
+           return head;
+        }
+
+        // remove all the duplicates number from a sorted linked list which can appears tiwce
+        public ListNode deleteDuplicates(ListNode head) {
+            return head;
+        }
+
+
+
 
     public static void main(String[] args) {
         
