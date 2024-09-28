@@ -239,12 +239,6 @@ public class Linked_Repeate {
         head = pre;
 
         while (oldHead != null && head != null) {
-            // System.out.println("old" + oldHead.data);
-            // System.out.println("head" + head.data);
-
-            // if (!oldHead.data.equals(head.data)) {
-            // // System.out.println(true);
-            // }
 
             if (!oldHead.data.equals(head.data)) {
                 System.out.println(false);
