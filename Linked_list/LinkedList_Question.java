@@ -117,7 +117,7 @@ public ListNode removeNthFromEnd(ListNode head, int n) {
                 return head;
         }
 
-        // calculate middle of a linked list
+        // calculate middle of a linked list ==>
         public ListNode middle(ListNode head){
 
             ListNode hare = head;
