@@ -86,7 +86,7 @@ public ListNode removeNthFromEnd(ListNode head, int n) {
 // Input: head = [1,2,3,4,5]
 // Output: [5,4,3,2,1]
 
-    public static ListNode reverseList(ListNode head) {
+    public ListNode reverseList(ListNode head) {
         if(head == null || head.next == null){
             return head;
         }
@@ -116,9 +116,46 @@ public ListNode removeNthFromEnd(ListNode head, int n) {
         public ListNode reverseBetween(ListNode head, int left, int right) {
                 return head;
         }
+
+        // calculate middle of a linked list
+        public ListNode middle(ListNode head){
+
+            ListNode hare = head;
+            ListNode turttle = head;
+
+            while (hare.next != null && hare.next.next != null) {
+                hare = hare.next.next;
+                turttle = turttle.next;
+                
+            }
+
+            return turttle;
+
+        }
      
 
         // Check if a Linked List is a palindrome ==> try to solve it by own
+
+        public boolean isPalindrome(ListNode head) {
+            if(head == null || head.next == null){
+                return true;
+            }
+
+            ListNode middle = middle(head);
+            ListNode reverse = reverseList(middle.next);
+
+            ListNode first = head;
+
+            while (reverse != null) {
+                if(first.val != reverse.val){
+                    return false;
+                }
+                first = first.next;
+                reverse = reverse.next;
+                
+            }
+          return true;
+        }
 
         // Detecting Loop in a Linked List.  ==  
 
