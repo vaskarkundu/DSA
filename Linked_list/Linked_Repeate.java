@@ -282,27 +282,42 @@ public class Linked_Repeate {
         Node first = pre.next; 
         pre.next = previous;   
         first.next = current;  
-    
-        
         head = dummy.next;
 
-
-        
 }
+
+    public void deleteDuplicatesOne() {
+        if(head == null || head.next == null){
+            return;
+        }
+        Node previous = head;
+        Node current = head.next;
+
+        while (current != null) {
+            if(previous.data.equals(current.data)){
+                previous.next = current.next;
+                current = current.next;
+            }
+
+            previous = previous.next;
+            current = current.next;
+        }
+    }
 
     public static void main(String[] args) {
         Linked_Repeate LL = new Linked_Repeate();
         // LL.addFirst("1");
         LL.addLast("1");
+        LL.addLast("1");
+        LL.addLast("2");
         LL.addLast("2");
         LL.addLast("3");
-        // LL.addLast("3");
         LL.addLast("4");
         LL.addLast("5");
         LL.addLast("6");
         LL.addLast("7");
         LL.addLast("8");
-        LL.reverseBetween(2, 4);
+        LL.deleteDuplicatesOne();
         // LL.addLast("4");
         // LL.addLast("5");
         // LL.addLast("6");
