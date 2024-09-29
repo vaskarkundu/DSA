@@ -308,26 +308,44 @@ public class Linked_Repeate {
         if(head == null || head.next == null){
             return;
         }
-       
-        Node prNode = head;
-        Node cuNode = head.next;
+        //    1,3,4,4,5
+        Node first = head;
+        Node second = head.next;
+        Node thrid = second.next;
 
-        while (cuNode != null && cuNode.next != null) {
-            
-            Node newNode = cuNode.next;
-            if(prNode.data.equals(cuNode.data) && prNode.data.equals(newNode.data)){
-                prNode.next = newNode.next;
-                cuNode = newNode.next;
+        while (thrid != null && thrid.next.next != null) {
+            if(second.data.equals(thrid.data)){
+                second = thrid.next;
+                thrid = second.next;
+                first.next = second;
+                second.next = thrid;
+
             }
-            if(prNode.data.equals(cuNode.data)){
-                prNode.next = cuNode.next;
-                cuNode = cuNode.next;
-            }
-            
-            prNode = prNode.next;
-            cuNode = cuNode.next;
+            first = first.next;
+            second = second.next;
+            thrid = thrid.next;
             
         }
+       
+        // Node prNode = head;
+        // Node cuNode = head.next;
+
+        // while (cuNode != null && cuNode.next != null) {
+            
+        //     Node newNode = cuNode.next;
+        //     if(prNode.data.equals(cuNode.data) && prNode.data.equals(newNode.data)){
+        //         prNode.next = newNode.next;
+        //         cuNode = newNode.next;
+        //     }
+        //     if(prNode.data.equals(cuNode.data)){
+        //         prNode.next = cuNode.next;
+        //         cuNode = cuNode.next;
+        //     }
+            
+        //     prNode = prNode.next;
+        //     cuNode = cuNode.next;
+            
+        // }
        
     }
 // 
@@ -337,7 +355,7 @@ public class Linked_Repeate {
         LL.addLast("1");
         // LL.addLast("1");
         LL.addLast("2");
-        LL.addLast("2");
+        // LL.addLast("2");
         LL.addLast("2");
         LL.addLast("3");
         LL.addLast("4");
