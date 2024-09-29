@@ -114,7 +114,33 @@ public ListNode removeNthFromEnd(ListNode head, int n) {
         // Output: [5]
         // Reverse Linked List - II
         public ListNode reverseBetween(ListNode head, int left, int right) {
+            if(head == null){
                 return head;
+            }
+
+            ListNode dummmy = new ListNode(0);
+            dummmy.next = head;
+            ListNode pre = dummmy;
+
+            for(int i =0; i<left -1; i++){
+                pre = pre.next;
+            }
+            ListNode curreent = pre.next;
+            ListNode nexNode = null;
+            ListNode previous = null;
+            for(int i = 0; i<right - left; i++){
+                nexNode = curreent.next;
+                curreent.next = previous;
+                previous = curreent;
+                curreent = nexNode;
+            }
+                
+            ListNode first = pre.next;
+            pre.next = previous;
+            first.next = curreent;
+
+            head = dummmy.next;
+            return head;
         }
 
         // calculate middle of a linked list ==>
