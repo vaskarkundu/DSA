@@ -253,6 +253,43 @@ public class Linked_Repeate {
 
     }
 
+    public void reverseBetween(int left, int right) {
+
+        if(head == null){
+            return;
+        }
+        
+        Node dummy = new Node("0");
+        dummy.next = head;
+        Node pre = dummy;
+
+        for(int i = 0; i<left - 1; i++){
+            pre = pre.next;
+        }
+
+        Node current = pre.next;
+        Node nexNode = null;
+        Node previous = null;
+
+        for(int i =0; i<right - left; i++){
+            nexNode = current.next;
+            current.next = previous;
+            previous = current;
+            current = nexNode;
+
+        }
+
+        Node first = pre.next; 
+        pre.next = previous;   
+        first.next = current;  
+    
+        
+        head = dummy.next;
+
+
+        
+}
+
     public static void main(String[] args) {
         Linked_Repeate LL = new Linked_Repeate();
         // LL.addFirst("1");
@@ -260,18 +297,23 @@ public class Linked_Repeate {
         LL.addLast("2");
         LL.addLast("3");
         // LL.addLast("3");
-        LL.addLast("1");
+        LL.addLast("4");
+        LL.addLast("5");
+        LL.addLast("6");
+        LL.addLast("7");
+        LL.addLast("8");
+        LL.reverseBetween(2, 4);
         // LL.addLast("4");
         // LL.addLast("5");
         // LL.addLast("6");
         // LL.addLast("7");
         // LL.addLast("8");
-        LL.isPilindromic();
+        // LL.isPilindromic();
         // LL.addLast("5");
         // LL.removeNthFromEnd();
 
         // LL.reverseList();
-        // LL.printList();
+        LL.printList();
         // LL.removeLast();
         // LL.getFirst();
         // LL.getLast();
