@@ -304,20 +304,49 @@ public class Linked_Repeate {
         }
     }
 
+    public void deleteDuplicates() {
+        if(head == null || head.next == null){
+            return;
+        }
+       
+        Node prNode = head;
+        Node cuNode = head.next;
+
+        while (cuNode != null && cuNode.next != null) {
+            
+            Node newNode = cuNode.next;
+            if(prNode.data.equals(cuNode.data) && prNode.data.equals(newNode.data)){
+                prNode.next = newNode.next;
+                cuNode = newNode.next;
+            }
+            if(prNode.data.equals(cuNode.data)){
+                prNode.next = cuNode.next;
+                cuNode = cuNode.next;
+            }
+            
+            prNode = prNode.next;
+            cuNode = cuNode.next;
+            
+        }
+       
+    }
+// 
     public static void main(String[] args) {
         Linked_Repeate LL = new Linked_Repeate();
         // LL.addFirst("1");
         LL.addLast("1");
-        LL.addLast("1");
+        // LL.addLast("1");
+        LL.addLast("2");
         LL.addLast("2");
         LL.addLast("2");
         LL.addLast("3");
         LL.addLast("4");
+        LL.addLast("4");
         LL.addLast("5");
-        LL.addLast("6");
-        LL.addLast("7");
-        LL.addLast("8");
-        LL.deleteDuplicatesOne();
+        LL.deleteDuplicates();
+        // LL.addLast("7");
+        // LL.addLast("8");
+        // LL.deleteDuplicatesOne();
         // LL.addLast("4");
         // LL.addLast("5");
         // LL.addLast("6");
