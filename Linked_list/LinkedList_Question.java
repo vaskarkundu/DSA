@@ -195,6 +195,21 @@ public ListNode removeNthFromEnd(ListNode head, int n) {
         // remove all the duplicates number from a sorted linked list which can appears once
 
         public ListNode deleteDuplicatesOne(ListNode head) {
+            if(head == null || head.next == null){
+                return head;
+            }
+            ListNode previous = head;
+            ListNode current  = head.next;
+            while (current != null) {
+
+                if(previous.val == current.val){
+                    previous.next = current.next;
+                    current = current.next;
+                }
+                previous = previous.next;
+                current = current.next;
+                
+            }
            return head;
         }
 
