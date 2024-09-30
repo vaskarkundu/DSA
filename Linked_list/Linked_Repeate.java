@@ -23,6 +23,16 @@ public class Linked_Repeate {
 
     }
 
+    class ListNode {
+        int val;
+        ListNode next;
+        
+        ListNode(int val) {
+            this.val = val;
+            this.next = null;
+        }
+    }
+
     // add first
 
     public void addFirst(String data) {
@@ -346,11 +356,53 @@ public class Linked_Repeate {
         //     cuNode = cuNode.next;
             
         // }
+
+       
+        //    return list1;
+        }
+
+            
+        public void mergeTwoLists() {
+            ListNode x1 = new ListNode(1);
+            x1.next = new ListNode(2);
+            x1.next.next = new ListNode(3);
+           
+
+            ListNode x2 = new ListNode(4);
+            x2.next = new ListNode(5);
+            x2.next.next = new ListNode(6);
+
+            ListNode previous = x1;
+            ListNode current = x1.next;
+            
+            while (current != null) {
+                current = current.next;
+                previous = previous.next;
+            }
+            previous.next = x2;
+
+            while (x1 != null) {
+                System.out.println("s"+x1.val);
+                x1 = x1.next;
+                
+            }
+
+
+           
+            
+
+
+            
+        
        
     }
 // 
     public static void main(String[] args) {
         Linked_Repeate LL = new Linked_Repeate();
+
+        LL.mergeTwoLists();
+      
+       
         // LL.addFirst("1");
         LL.addLast("1");
         // LL.addLast("1");
@@ -361,7 +413,7 @@ public class Linked_Repeate {
         LL.addLast("4");
         LL.addLast("4");
         LL.addLast("5");
-        LL.deleteDuplicates();
+        // LL.deleteDuplicates();
         // LL.addLast("7");
         // LL.addLast("8");
         // LL.deleteDuplicatesOne();
@@ -375,7 +427,7 @@ public class Linked_Repeate {
         // LL.removeNthFromEnd();
 
         // LL.reverseList();
-        LL.printList();
+        // LL.printList();
         // LL.removeLast();
         // LL.getFirst();
         // LL.getLast();
