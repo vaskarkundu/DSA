@@ -361,16 +361,50 @@ public class Linked_Repeate {
         //    return list1;
         }
 
+        public ListNode selectionsort(ListNode x){
+            if(x == null){
+                return x;
+            }
+
+            ListNode current = x;
+            while (current != null) {
+
+                ListNode min = current;
+                ListNode nexNode = current.next;
+
+                while (nexNode !=null) {
+
+                    if(min.val > nexNode.val){
+                        min = nexNode;
+                    }
+
+                    nexNode = nexNode.next;
+                    
+                }
+
+                if(min != current){
+                    int tem = current.val;
+                    current.val = min.val;
+                    min.val = tem;
+                }
+
+
+                current = current.next;
+                
+            }
+            return x;
+        }
+
             
         public void mergeTwoLists() {
             ListNode x1 = new ListNode(1);
-            x1.next = new ListNode(2);
-            x1.next.next = new ListNode(3);
+            x1.next = new ListNode(3);
+            x1.next.next = new ListNode(2);
            
 
             ListNode x2 = new ListNode(4);
-            x2.next = new ListNode(5);
-            x2.next.next = new ListNode(6);
+            x2.next = new ListNode(6);
+            x2.next.next = new ListNode(5);
 
             ListNode previous = x1;
             ListNode current = x1.next;
@@ -381,9 +415,11 @@ public class Linked_Repeate {
             }
             previous.next = x2;
 
-            while (x1 != null) {
-                System.out.println("s"+x1.val);
-                x1 = x1.next;
+            ListNode s = selectionsort(x1);
+
+            while (s != null) {
+                System.out.println("s"+s.val);
+                s = s.next;
                 
             }
 
