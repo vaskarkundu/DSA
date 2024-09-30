@@ -219,11 +219,19 @@ public ListNode removeNthFromEnd(ListNode head, int n) {
             return head;
         }
 
+        public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+            while (list1.next == null) {
+                
+            }
+        
+           return list1;
+        }
+
 
 
 
     public static void main(String[] args) {
-        
+      
     }
     
 }
