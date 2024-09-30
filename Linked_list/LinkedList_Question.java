@@ -128,19 +128,18 @@ public ListNode removeNthFromEnd(ListNode head, int n) {
             ListNode curreent = pre.next;
             ListNode nexNode = null;
             ListNode previous = null;
-            for(int i = 0; i<right - left; i++){
+            for(int i = 0; i<=right - left; i++){
                 nexNode = curreent.next;
                 curreent.next = previous;
                 previous = curreent;
                 curreent = nexNode;
             }
-                
-            ListNode first = pre.next;
-            pre.next = previous;
-            first.next = curreent;
 
-            head = dummmy.next;
-            return head;
+            pre.next.next = curreent; 
+            pre.next = previous;
+                
+         
+            return dummmy.next;
         }
 
         // calculate middle of a linked list ==>
@@ -204,9 +203,11 @@ public ListNode removeNthFromEnd(ListNode head, int n) {
 
                 if(previous.val == current.val){
                     previous.next = current.next;
-                    current = current.next;
+                  
+                }else{
+                    previous = current;
                 }
-                previous = previous.next;
+                
                 current = current.next;
                 
             }
