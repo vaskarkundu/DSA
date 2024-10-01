@@ -299,7 +299,31 @@ public ListNode removeNthFromEnd(ListNode head, int n) {
             return head;
         }
 
+        // Rotate a list
+        // Input: head = [1,2,3,4,5], k = 2
+        // Output: [4,5,1,2,3]
+        public ListNode rotateRight(ListNode head, int k) {
+            while (k > 0) {
 
+                if(head == null){
+                    return head;
+                }
+
+                ListNode pre = head;
+                ListNode cru = head.next;
+                while (cru.next != null) {
+                    pre = pre.next;
+                    cru = cru.next;
+                }
+                ListNode tem = cru;
+                pre.next = null;
+                tem.next = head;
+                head = tem;
+                k--;
+                
+            }
+          return head;
+        }
 
 
     public static void main(String[] args) {
