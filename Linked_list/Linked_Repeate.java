@@ -421,16 +421,7 @@ public class Linked_Repeate {
                 System.out.println("s"+s.val);
                 s = s.next;
                 
-            }
-
-      
-           
-            
-
-
-            
-        
-       
+            }     
     }
 
 
@@ -455,22 +446,55 @@ public class Linked_Repeate {
         }
     
     }
-// 
+// Rotate a list
+ // Input: head = [1,2,3,4,5],
+                                        // k = 2 ==> 4,2,3,1 ==> 
+        // Output: [4,5,1,2,3]
+        // 5,1,2,3,4
+
+    public void rotateRight() {
+        int g = 4;
+        while (g > 0) {
+            Node pre = head;
+            Node curr = head.next;
+            while (curr.next != null) {
+                pre = pre.next;
+                curr = curr.next;
+                
+            }
+            
+            Node tem = curr;
+            pre.next = null;
+            tem.next = head;
+            head = tem;
+            g--;
+            
+        }
+        // Input: head = [0,1,2], k = 4
+        // Output: [2,0,1]
+        
+       
+          
+     
+        
+    }
     public static void main(String[] args) {
         Linked_Repeate LL = new Linked_Repeate();
       
        
         // LL.addFirst("1");
-        LL.addLast("1");
+        LL.addLast("0");
         // LL.addLast("1");
         LL.addLast("1");
         // LL.addLast("2");
-        LL.addLast("1");
-        LL.addLast("1");
-        LL.addLast("1");
-        LL.addLast("1");
-        LL.addLast("1");
-        LL.removeElements();
+        LL.addLast("2");
+        // LL.addLast("4");
+        // LL.addLast("5");
+        // LL.addLast("1");
+        // LL.addLast("1");
+        // LL.addLast("1");
+        // LL.removeElements();
+        LL.rotateRight();
         // LL.deleteDuplicates();
         // LL.addLast("7");
         // LL.addLast("8");
