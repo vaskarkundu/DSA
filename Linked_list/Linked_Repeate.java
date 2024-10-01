@@ -423,7 +423,7 @@ public class Linked_Repeate {
                 
             }
 
-
+      
            
             
 
@@ -432,23 +432,45 @@ public class Linked_Repeate {
         
        
     }
+
+
+    public void removeElements() {
+      
+        String x = "1";
+        Node pre = head;
+        Node curr = head.next;
+
+        while (curr != null) {
+            
+            if(curr.data.contains(x)){
+                pre.next = curr.next;
+                curr = curr.next;
+            }else{
+                pre  = curr;
+                curr = curr.next;
+
+            }
+           
+            
+        }
+    
+    }
 // 
     public static void main(String[] args) {
         Linked_Repeate LL = new Linked_Repeate();
-
-        LL.mergeTwoLists();
       
        
         // LL.addFirst("1");
         LL.addLast("1");
         // LL.addLast("1");
-        LL.addLast("2");
+        LL.addLast("1");
         // LL.addLast("2");
-        LL.addLast("2");
-        LL.addLast("3");
-        LL.addLast("4");
-        LL.addLast("4");
-        LL.addLast("5");
+        LL.addLast("1");
+        LL.addLast("1");
+        LL.addLast("1");
+        LL.addLast("1");
+        LL.addLast("1");
+        LL.removeElements();
         // LL.deleteDuplicates();
         // LL.addLast("7");
         // LL.addLast("8");
@@ -463,7 +485,7 @@ public class Linked_Repeate {
         // LL.removeNthFromEnd();
 
         // LL.reverseList();
-        // LL.printList();
+        LL.printList();
         // LL.removeLast();
         // LL.getFirst();
         // LL.getLast();
