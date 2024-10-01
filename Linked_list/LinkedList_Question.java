@@ -300,12 +300,11 @@ public ListNode removeNthFromEnd(ListNode head, int n) {
         }
 
         // Rotate a list
-        // Input: head = [1,2,3,4,5], k = 2
-        // Output: [4,5,1,2,3]
+        // this code has issue in large k value , need to solve it for submission;
         public ListNode rotateRight(ListNode head, int k) {
             while (k > 0) {
 
-                if(head == null){
+                if(head == null || head.next == null){
                     return head;
                 }
 
