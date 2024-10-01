@@ -219,12 +219,67 @@ public ListNode removeNthFromEnd(ListNode head, int n) {
             return head;
         }
 
-        public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
-            while (list1.next == null) {
+        // selection sort of a lined list
+        public ListNode selectionsort(ListNode x){
+            if(x == null){
+                return x;
+            }
+
+            ListNode current = x;
+            while (current != null) {
+
+                ListNode min = current;
+                ListNode nexNode = current.next;
+
+                while (nexNode !=null) {
+
+                    if(min.val > nexNode.val){
+                        min = nexNode;
+                    }
+
+                    nexNode = nexNode.next;
+                    
+                }
+
+                if(min != current){
+                    int tem = current.val;
+                    current.val = min.val;
+                    min.val = tem;
+                }
+
+
+                current = current.next;
                 
             }
+            return x;
+        }
+
+        public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+            if(list1 == null && list2 == null) {
+                return null;
+            }
+            if(list1 == null){
+                return list1;
+            }
+            if(list2 == null){
+                return list2;
+            }
+            ListNode pre = list1;
+            ListNode curr = pre.next;
+            while (curr != null) {
+                pre = pre.next;
+                curr = curr.next;
+                
+            }
+            pre.next = list2;
+
+            ListNode s = selectionsort(list1);
         
-           return list1;
+           return s;
+        }
+
+        public ListNode removeElements(ListNode head, int val) {
+            return head;
         }
 
 
