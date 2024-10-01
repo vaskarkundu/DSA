@@ -286,10 +286,8 @@ public class Sorting {
             int j = i - 1;
             while (j >=0 && curr < arr[j]) {
                 arr[j+1]=arr[j];
-                j--;
-                
+                j--;                
             }
-
             // placement
             arr[j+1] = curr;
         }
