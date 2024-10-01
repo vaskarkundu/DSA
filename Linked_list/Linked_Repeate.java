@@ -435,7 +435,7 @@ public class Linked_Repeate {
 
 
     public void removeElements() {
-      
+        
         String x = "1";
         Node pre = head;
         Node curr = head.next;
