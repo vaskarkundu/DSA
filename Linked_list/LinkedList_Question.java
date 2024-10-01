@@ -279,6 +279,23 @@ public ListNode removeNthFromEnd(ListNode head, int n) {
         }
 
         public ListNode removeElements(ListNode head, int val) {
+            while (head != null && head.val == val) {
+                head = head.next;
+                
+            }
+            ListNode pre = head;
+            ListNode curr = head.next;
+            while (curr != null) {
+                
+                if(curr.val == val){
+                    pre.next = curr.next;
+                    curr = curr.next;
+                }else{
+                    pre = curr;
+                    curr = curr.next;
+                }
+                
+            }
             return head;
         }
 
