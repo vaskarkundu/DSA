@@ -299,15 +299,25 @@ public ListNode removeNthFromEnd(ListNode head, int n) {
             return head;
         }
 
+        public int size(ListNode x){
+            int size = 0;
+            while (x != null) {
+                size++;
+                x = x.next;
+                
+            }
+            return size;
+        }
+
         // Rotate a list
         // this code has issue in large k value , need to solve it for submission;
         public ListNode rotateRight(ListNode head, int k) {
-            while (k > 0) {
-
-                if(head == null || head.next == null){
-                    return head;
-                }
-
+            if(head == null || head.next == null){
+                return head;
+            }
+            int size = size(head);
+            int reminder = k % size;
+            while (reminder > 0) {
                 ListNode pre = head;
                 ListNode cru = head.next;
                 while (cru.next != null) {
@@ -318,7 +328,7 @@ public ListNode removeNthFromEnd(ListNode head, int n) {
                 pre.next = null;
                 tem.next = head;
                 head = tem;
-                k--;
+                reminder--;
                 
             }
           return head;
