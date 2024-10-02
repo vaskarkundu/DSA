@@ -446,6 +446,16 @@ public class Linked_Repeate {
         }
     
     }
+    public int checkSize(Node x){
+       int size = 0;
+       while (x != null) {
+          size++;
+          x = x.next;
+        
+       }
+       return size;
+
+    }
 // Rotate a list
  // Input: head = [1,2,3,4,5],
                                         // k = 2 ==> 4,2,3,1 ==> 
@@ -453,8 +463,12 @@ public class Linked_Repeate {
         // 5,1,2,3,4
 
     public void rotateRight() {
+        int size = checkSize(head);
+        System.out.println(10 % 0);
         int g = 4;
-        while (g > 0) {
+        int k = g % size;
+        // System.out.println(k);
+        while (k > 0) {
             Node pre = head;
             Node curr = head.next;
             while (curr.next != null) {
@@ -467,7 +481,7 @@ public class Linked_Repeate {
             pre.next = null;
             tem.next = head;
             head = tem;
-            g--;
+            k--;
             
         }
         // Input: head = [0,1,2], k = 4
