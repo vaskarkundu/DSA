@@ -37,18 +37,40 @@ public class Search_Question {
             if(nums[mid] > nums[right]){
                 left = mid + 1;
             }else{
-                right = mid;
+                right = mid - 1;
             }  
             
         }
         return nums[left];
         
     }
+    //  1 2 3 4 5 
+    public static int searchInsert(int[] nums, int target) {
+        int high = nums.length - 1;
+        int low = 0;
+        while (low <= high) {
+            int mid = low + (high - low)/2;
+             if(nums[mid] == target){
+                return mid;
+             }
+            if(nums[mid] < target){
+               low = mid + 1;
+            }else{
+                high = mid - 1;
+            }
+
+            
+        }
+        
+        
+        return low;
+    }
 
     public static void main(String[] args) {
         int[] nums = {11,13,15,17};
-        int x = findMin(nums);
-        System.out.println(x);
+        int x = searchInsert(nums, 100);
+        // int x = findMin(nums);
+        // System.out.println(x);
     }
     
 }
