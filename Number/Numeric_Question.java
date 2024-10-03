@@ -257,9 +257,31 @@ public class Numeric_Question {
         return 0;
     }
 
+    public static boolean isPalindrome(int x) {
+       
+        if(x < 0){
+            return false;
+        }
+        int main = x;
+        int reverse = 0;
+        while (x != 0) {
+
+            int digit = x % 10;
+            reverse = reverse * 10 + digit;
+            x = x/10;
+        }
+        if(reverse == main){
+            return true;
+        }
+    
+        return false;
+
+        
+    }
+
     public static void main(String[] args) {
         int[] n1 ={7,1,14,11};
-        int x = daysBetweenDates("2020-01-15","2019-12-31");
+        boolean x = isPalindrome(1218);
         System.out.println(x);
         
     }
