@@ -260,19 +260,30 @@ public class String_question {
             }else{
                 n +=map.get(x[i]);
             }
-            
-
             old = x[i];
         }
       
         return n;
     }
 
+// Input: strs = ["flower","flow","flight"]
+// Output: "fl"
+
+public static String longestCommonPrefix(String[] strs) {
+
+        for(int i = 0; i<strs.length; i++){
+            String ch = strs[i];
+
+            System.out.println(ch);
+        }
+        return "s";
+}
+
     
 
     public static void main(String[] args) {
-
-       int x = romanToInt("MCMXCIV");
+       String[] str = {"flower","flow","flight"};
+       String x = longestCommonPrefix(str);
        System.out.println(x);
     
     }
