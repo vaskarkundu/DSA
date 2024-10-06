@@ -492,6 +492,13 @@ public class Linked_Repeate {
      
         
     }
+
+//     Input: l1 = [2,4,3], l2 = [5,6,4]
+// Output: [7,0,8]
+// Explanation: 342 + 465 = 807.
+// 30 + 40 + 20
+
+ 
     public static void main(String[] args) {
         Linked_Repeate LL = new Linked_Repeate();
       
@@ -508,7 +515,7 @@ public class Linked_Repeate {
         // LL.addLast("1");
         // LL.addLast("1");
         // LL.removeElements();
-        LL.rotateRight();
+        // LL.rotateRight();
         // LL.deleteDuplicates();
         // LL.addLast("7");
         // LL.addLast("8");
