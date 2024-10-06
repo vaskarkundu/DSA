@@ -192,7 +192,7 @@ public class Recursion {
 
     // print all subsequence of string ==> time complexcity O(2^n)
     public static void subsequence(String str, int i, String newStr){
-
+    //    abc
         if(i == str.length()){
             System.out.println(newStr);
             return;
@@ -276,7 +276,7 @@ public class Recursion {
         // printFComb("23", 0,"");
         // HashSet<String> set = new HashSet<>();
         // uniqueSubsequnce("aaa", 0,"", set);
-        // subsequence("abc", 0,"");
+        subsequence("abc", 0,"");
         // removeDuplicates("abbaccddffee", 0, "");
         // moveElementinLast("abced", 0,0,"", 'e');
         // int[] x = {1,2,3,4,5,6,-100};
