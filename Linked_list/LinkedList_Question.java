@@ -88,6 +88,7 @@ public ListNode removeNthFromEnd(ListNode head, int n) {
 
     public ListNode reverseList(ListNode head) {
         if(head == null || head.next == null){
+            
             return head;
         }
         ListNode pre = head;
@@ -333,6 +334,60 @@ public ListNode removeNthFromEnd(ListNode head, int n) {
             }
           return head;
         }
+
+        public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+
+            ListNode listOne = reverseList(l1);
+            ListNode listTwo = reverseList(l2);
+            int resOne = 0;
+            int resTwo = 0;
+
+            while (listOne != null) {
+                resOne = resOne*10 + listOne.val;
+                listOne = listOne.next;
+            }
+
+            while (listTwo != null) {
+                resTwo = resTwo*10 + listTwo.val;
+                listTwo = listTwo.next;
+                
+            }
+            int result = resOne + resTwo;
+
+          
+
+            
+
+            while (result > 0) {
+
+                int val = result % 10;
+
+               
+              addLast(val);
+
+                 
+                result = result/10;
+                
+            }
+
+        return head;
+        }
+        ListNode head;
+        public void addLast(int data) {
+            ListNode x = new ListNode(data);
+        if (head == null) {
+            head = x;
+            return;
+        }
+        ListNode curr = head;
+        while (curr.next != null) {
+            curr = curr.next;
+
+        }
+        curr.next = x;
+        }
+
+       
 
 
     public static void main(String[] args) {
