@@ -279,9 +279,23 @@ public class Numeric_Question {
         
     }
 
+    public static boolean isPerfectSquare(int num) {
+
+        if(num >=0){
+             long sr = (long)Math.sqrt(num);
+
+             return sr * sr == num;
+
+        }
+        return false;
+
+       
+        
+    }
+
     public static void main(String[] args) {
         int[] n1 ={7,1,14,11};
-        boolean x = isPalindrome(1218);
+        boolean x = isPerfectSquare(16);
         System.out.println(x);
         
     }
