@@ -232,10 +232,28 @@ public class Sorting {
 
         return maxLength;   
     }
+
+    public static void moveZeroes(int[] nums) {
+        Arrays.sort(nums);
+        int idx = 0;
+        int check = 0;
+        for(int i =0; i<nums.length; i++){
+            if(nums[i] != check){
+                nums[idx] = nums[i];
+                idx++;
+            }
+        }
+
+        while (idx < nums.length) {
+            nums[idx] = check;
+            idx++; 
+        }  
+    }
     public static void main(String[] args) {
-        int [] nums = {100,4,200,1,3,2};
-        int z = longestConsecutive(nums);
-        System.out.println(z);
+        int [] nums = {1,0,2,0,4};
+        moveZeroes(nums);
+        // int z = longestConsecutive(nums);
+        // System.out.println(z);
         
         // 5,4,2,3
         int arr[]={8000,9000,2000,3000,6000,1000,1000};
