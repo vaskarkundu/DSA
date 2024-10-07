@@ -270,13 +270,37 @@ public class String_question {
 // Output: "fl"
 
 public static String longestCommonPrefix(String[] strs) {
+        
+    
+    
+        String s = "";
+        int size = 0;
+        int chr = 0;
+        int pos = 5;
+        while (size < pos) {
+            if(strs[size].startsWith(s)){
+                if(!strs[size].equals(s)){
+                    s+=strs[size];
 
-        for(int i = 0; i<strs.length; i++){
-            String ch = strs[i];
+                }
+            }else{
+                break;
+            }
 
-            System.out.println(ch);
+          
+
+
+            // pos++;
+
+            if(size == strs.length - 1){
+                size = 0;
+                chr++;
+            }
+
+            size++;
+            
         }
-        return "s";
+        return s;
 }
 
     
