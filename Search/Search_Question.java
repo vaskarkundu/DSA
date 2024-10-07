@@ -57,14 +57,23 @@ public class Search_Question {
                low = mid + 1;
             }else{
                 high = mid - 1;
-            }
-
-            
+            }   
         }
         
         
         return low;
     }
+
+    public static void num(){
+        System.out.println("one");
+        System.out.println("one");
+        System.out.println("one");
+        System.out.println("one");
+        System.out.println("one");
+        System.out.println("one");
+    }
+
+  
 
     public static void main(String[] args) {
         int[] nums = {11,13,15,17};
