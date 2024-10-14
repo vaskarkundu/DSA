@@ -8,6 +8,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Stack;
 import java.util.regex.Pattern;
 
 public class String_question {
@@ -319,11 +320,9 @@ public String _longestCommonPrefix(String[] strs) {
 
     while (rotate > -1) {
         if (rotate == 0) {
-            
             if (round - 1 >= strs[rotate].length()) {
                 break; 
-            }
-        
+            }        
             prefix += strs[rotate].charAt(round - 1);
         }
 
@@ -353,22 +352,57 @@ public String _longestCommonPrefix(String[] strs) {
         boolean res = true;
           
 
-        for(int i =0; i<s.length(); i = i + 2){
-            if(!(map.get(s.charAt(i)) == s.charAt(i+1))){
-               res = false;
-               break;
-            } 
+        for(int i =0; i<s.length(); i++){
+            // if(!(map.get(s.charAt(i)) == s.charAt(i+1))){
+            //    res = false;
+            //    break;
+            // } 
+            if(!(s.substring(i, s.length()).contains(Character.toString(map.get(s.charAt(i)))))){
+                res = false;
+                break;
+            }
+           ;
         }
             return res;
     }
+    //    4 + 5 + 5 + 5 + 3 + 6  ==> 28
+
+    public static boolean _isValid(String s) {
+
+       Stack<Character> stack = new Stack<>();
+        
+       
+        for (char ch : s.toCharArray()) {
+           
+            if (ch == '(' || ch == '{' || ch == '[') {
+                stack.push(ch);
+            } else {
+                
+                if (stack.isEmpty()) {
+                    return false;
+                }
+                
+                char top = stack.pop();
+                if ((ch == ')' && top != '(') ||
+                    (ch == '}' && top != '{') ||
+                    (ch == ']' && top != '[')) {
+                    return false; 
+                }
+            }
+        }
+        
+       
+        return stack.isEmpty();
 
 
+    }
+   
     
 
     public static void main(String[] args) {
 
-    String s = "({})";
-    boolean x = isValid(s);
+    String s = "({}]";
+    boolean x = _isValid(s);
     System.out.println(x);
     
     }
