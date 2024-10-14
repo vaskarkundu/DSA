@@ -366,9 +366,7 @@ public String _longestCommonPrefix(String[] strs) {
     
 
     public static void main(String[] args) {
-    // ["dog","racecar","car"]
-    //String[] str = {"dog","racecar","car"};
-    //String x = longestCommonPrefix(str);
+
     String s = "({})";
     boolean x = isValid(s);
     System.out.println(x);
