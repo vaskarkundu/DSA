@@ -274,7 +274,7 @@ public static String longestCommonPrefix(String[] strs) {
       int rotate = 0;
       int length = strs.length;
       int round = 1;
-      
+
       String res = "";
       if (strs == null || length == 0 || strs[0].isEmpty()) {
         return res;
@@ -300,8 +300,6 @@ public static String longestCommonPrefix(String[] strs) {
             res = res.substring(0, res.length() - 1);
             break;
         }
-        
-       
        }
         
         return res;
@@ -314,22 +312,22 @@ public String _longestCommonPrefix(String[] strs) {
     String prefix = "";
     String res = "";
 
-    // Base case: return empty string if input is empty or any string is empty
+
     if (strs == null || length == 0 || strs[0].isEmpty()) {
         return res;
     }
 
     while (rotate > -1) {
         if (rotate == 0) {
-            // Check that the round index doesn't exceed the length of the first string
+            
             if (round - 1 >= strs[rotate].length()) {
-                break; // Stop if we reach the end of the first string
+                break; 
             }
-            // Add the character at the current position
+        
             prefix += strs[rotate].charAt(round - 1);
         }
 
-        // Check if the prefix matches for all strings up to the current round
+    
         if (rotate < length && strs[rotate].length() >= round && prefix.equals(strs[rotate].substring(0, round))) {
             rotate++;
             if (rotate == length) {
@@ -338,21 +336,42 @@ public String _longestCommonPrefix(String[] strs) {
                 round++;
             }
         } else {
-            break; // Break if there's no match
+            break; 
         }
     }
 
     return res;
 }
 
+    public static boolean isValid(String s) {
+
+        HashMap<Character, Character> map = new HashMap<>();
+        map.put('(', ')');
+        map.put('{', '}');
+        map.put('[', ']');
+
+        boolean res = true;
+          
+
+        for(int i =0; i<s.length(); i = i + 2){
+            if(!(map.get(s.charAt(i)) == s.charAt(i+1))){
+               res = false;
+               break;
+            } 
+        }
+            return res;
+    }
+
 
     
 
     public static void main(String[] args) {
-        // ["dog","racecar","car"]
-       String[] str = {"dog","racecar","car"};
-       String x = longestCommonPrefix(str);
-       System.out.println(x);
+    // ["dog","racecar","car"]
+    //String[] str = {"dog","racecar","car"};
+    //String x = longestCommonPrefix(str);
+    String s = "({})";
+    boolean x = isValid(s);
+    System.out.println(x);
     
     }
     
