@@ -270,43 +270,87 @@ public class String_question {
 // Output: "fl"
 
 public static String longestCommonPrefix(String[] strs) {
-        
-    
-    
-        String s = "";
-        int size = 0;
-        int chr = 0;
-        int pos = 5;
-        while (size < pos) {
-            if(strs[size].startsWith(s)){
-                if(!strs[size].equals(s)){
-                    s+=strs[size];
 
-                }
-            }else{
-                break;
+      int rotate = 0;
+      int length = strs.length;
+      int round = 1;
+      
+      String res = "";
+      if (strs == null || length == 0 || strs[0].isEmpty()) {
+        return res;
+    }
+       while (rotate > -1) {
+
+        if(rotate == 0){
+            if (round - 1 >= strs[rotate].length()) {
+                break; 
             }
-
-          
-
-
-            // pos++;
-
-            if(size == strs.length - 1){
-                size = 0;
-                chr++;
-            }
-
-            size++;
-            
+            res += strs[rotate].charAt(round - 1);
         }
-        return s;
+
+        if(res.equals(strs[rotate].substring(0, round))){
+            
+            rotate++;
+            if(rotate == length){
+                rotate = 0;
+                round++;
+            } 
+
+        }else{
+            res = res.substring(0, res.length() - 1);
+            break;
+        }
+        
+       
+       }
+        
+        return res;
 }
+
+public String _longestCommonPrefix(String[] strs) {
+    int rotate = 0;
+    int length = strs.length;
+    int round = 1;
+    String prefix = "";
+    String res = "";
+
+    // Base case: return empty string if input is empty or any string is empty
+    if (strs == null || length == 0 || strs[0].isEmpty()) {
+        return res;
+    }
+
+    while (rotate > -1) {
+        if (rotate == 0) {
+            // Check that the round index doesn't exceed the length of the first string
+            if (round - 1 >= strs[rotate].length()) {
+                break; // Stop if we reach the end of the first string
+            }
+            // Add the character at the current position
+            prefix += strs[rotate].charAt(round - 1);
+        }
+
+        // Check if the prefix matches for all strings up to the current round
+        if (rotate < length && strs[rotate].length() >= round && prefix.equals(strs[rotate].substring(0, round))) {
+            rotate++;
+            if (rotate == length) {
+                res = prefix;
+                rotate = 0;
+                round++;
+            }
+        } else {
+            break; // Break if there's no match
+        }
+    }
+
+    return res;
+}
+
 
     
 
     public static void main(String[] args) {
-       String[] str = {"flower","flow","flight"};
+        // ["dog","racecar","car"]
+       String[] str = {"dog","racecar","car"};
        String x = longestCommonPrefix(str);
        System.out.println(x);
     
