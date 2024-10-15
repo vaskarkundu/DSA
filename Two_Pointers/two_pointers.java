@@ -44,10 +44,43 @@ public class two_pointers {
         return true;
     }
 
+    public static boolean isHappy(int n) {
+        
+        
+         int y = n;
+         int z = 0;
+
+         while (y > 0) {
+             
+            while (n > 0) {
+                int num = n % 10;
+
+                z += num*num;
+                 
+                 n = n / 10; 
+             }
+
+             if(z == 1 ){
+                return true;
+             }
+
+             if(y == n){
+                return false;
+             }
+             
+            
+         }
+
+         return false;
+
+    
+       
+    }
+
 
     public static void main(String[] args) {
       
-        boolean d = isPalindrome(" ");
+        boolean d = isHappy(19);
         System.out.println(d);
 
         
