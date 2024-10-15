@@ -44,34 +44,29 @@ public class two_pointers {
         return true;
     }
 
-    public static boolean isHappy(int n) {
+    public static boolean isHappy(int n, int pre) {
         
-        
-         int y = n;
+        //  if(n == pre){
+        //     return false;
+        //  }
+         if(n == 1 ){
+            return true;
+         }
+         
+         
          int z = 0;
-
-         while (y > 0) {
              
             while (n > 0) {
                 int num = n % 10;
-
                 z += num*num;
-                 
                  n = n / 10; 
              }
 
-             if(z == 1 ){
-                return true;
-             }
+             return isHappy(z,n);
 
-             if(y == n){
-                return false;
-             }
-             
             
-         }
 
-         return false;
+            
 
     
        
@@ -80,7 +75,7 @@ public class two_pointers {
 
     public static void main(String[] args) {
       
-        boolean d = isHappy(19);
+        boolean d = isHappy(4,0);
         System.out.println(d);
 
         
