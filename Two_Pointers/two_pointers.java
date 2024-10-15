@@ -27,12 +27,28 @@ public class two_pointers {
         return res;
     }
 
+    public static boolean isPalindrome(String s) {
+        String result = s.replaceAll("[^a-zA-Z0-9]", "").toLowerCase().trim();
+
+        int ini = 0;
+        int size = result.length() - 1;
+        while (ini < size) {
+            if(!(result.charAt(ini) == result.charAt(size))){
+                return false;
+            }
+            ini++;
+            size--;
+            
+        }
+
+        return true;
+    }
+
 
     public static void main(String[] args) {
-        // arr1 = [1,4,2,3], arr2 = [-4,-3,6,10,20,30], d = 3
-        int[] x= {1,4,2,3};
-        int[] y= {-4,-3,6,10,20,30};
-        int d = findTheDistanceValue(x, y, 3);
+      
+        boolean d = isPalindrome(" ");
+        System.out.println(d);
 
         
     }
