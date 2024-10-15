@@ -46,9 +46,7 @@ public class two_pointers {
 
     public static boolean isHappy(int n, int pre) {
         
-        //  if(n == pre){
-        //     return false;
-        //  }
+       
          if(n == 1 ){
             return true;
          }
@@ -62,7 +60,11 @@ public class two_pointers {
                  n = n / 10; 
              }
 
-             return isHappy(z,n);
+        if(z == pre){
+            return false;
+        }
+
+             return isHappy(z,pre);
 
             
 
@@ -75,7 +77,7 @@ public class two_pointers {
 
     public static void main(String[] args) {
       
-        boolean d = isHappy(4,0);
+        boolean d = isHappy(19,19);
         System.out.println(d);
 
         
