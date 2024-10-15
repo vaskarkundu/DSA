@@ -10,11 +10,8 @@ public class two_pointers {
         int res = 0;
         while (ini<arr1.length) {
             boolean x = true;
-
             int val = arr1[ini];
-
             for(int i =0; i<arr2.length; i++){
-               
                 if(!(Math.abs(val - arr2[i]) > d)){
                     x = false;
                     break;
