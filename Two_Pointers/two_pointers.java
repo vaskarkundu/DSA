@@ -44,14 +44,10 @@ public class two_pointers {
         return true;
     }
 
-    public static boolean isHappy(int n, int pre) {
-        
-       
-         if(n == 1 ){
+    public static boolean isHappyRecursion(int n, int pre){
+        if(n == 1 ){
             return true;
          }
-         
-         
          int z = 0;
              
             while (n > 0) {
@@ -64,20 +60,40 @@ public class two_pointers {
             return false;
         }
 
-             return isHappy(z,pre);
+        return isHappyRecursion(z,pre);
 
-            
+        
+    }
 
-            
+    public static boolean isHappy(int n) {
+        int match = n;
+        while (n > 0) {
+            int z = 0;
 
-    
-       
+
+            while (n > 0) {
+                int num = n % 10;
+                z += num*num;
+                n = n / 10; 
+             }
+
+             
+             if(z == match){
+                 return false;
+                }
+                if(z == 1){
+                    return true;
+                }
+             n = z;    
+        }
+
+        return false;    
     }
 
 
     public static void main(String[] args) {
       
-        boolean d = isHappy(19,19);
+        boolean d = isHappy(4);
         System.out.println(d);
 
         
