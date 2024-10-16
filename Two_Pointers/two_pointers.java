@@ -69,8 +69,6 @@ public class two_pointers {
         int match = n;
         while (n > 0) {
             int z = 0;
-
-
             while (n > 0) {
                 int num = n % 10;
                 z += num*num;
