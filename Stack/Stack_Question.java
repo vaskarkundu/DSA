@@ -28,6 +28,7 @@ public class Stack_Question {
         int tem = s.pop();
         reverseStack(s);
         addVlaueToBottom(s, tem);
+        
 
     }
 
