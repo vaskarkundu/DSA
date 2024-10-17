@@ -28,7 +28,7 @@ public class Stack_Question {
         int tem = s.pop();
         reverseStack(s);
         addVlaueToBottom(s, tem);
-        
+
 
     }
 
@@ -77,6 +77,9 @@ public class Stack_Question {
         }
     }
 
+
+
+
    
     
     public static boolean backspaceCompare(String s, String t) {
@@ -106,12 +109,62 @@ public class Stack_Question {
 
     }
 
+    public static int calPoints(String[] operations) {
+
+        Stack<String> s = new Stack<>();
+        for(String sr : operations){
+            
+            if(sr == "C"){
+                if(!s.isEmpty()){
+                    s.pop();
+                }
+                
+            }
+            if(sr=="D"){
+                if(!s.isEmpty()){
+                    String d = s.peek();
+                    String x =String.valueOf(Integer.parseInt(d)*2);
+                    s.push(x);
+
+                }
+               
+            }
+            if(sr == "+"){
+                int cou = 0;
+                while (!s.isEmpty()) {
+                    cou += Integer.parseInt(s.pop()) ;
+                    
+                }
+                s.push(String.valueOf(cou));
+                
+            }
+
+            s.push(sr);
+
+        }
+
+        int count = 0;
+
+        //  while (!s.isEmpty()) {
+        //     System.out.println(s.peek());
+        //     s.pop();
+            
+        // }
+
+        // while (!s.isEmpty()) {
+        //     count += Integer.parseInt(s.pop()) ;
+        // }
+
+
+        return count;
+    }
+
 
 
     public static void main(String[] args) {
-     
-       boolean x = backspaceCompare("ab##", "c#d#");
-       System.out.println(x);
+        String[] ops = {"5","2","C","D"};
+       int x = calPoints(ops);
+    //    System.out.println(x);
 
         // Stack<Integer> s = new Stack<>();
         // s.push(1);
