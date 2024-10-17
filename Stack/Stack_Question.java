@@ -18,6 +18,19 @@ public class Stack_Question {
 
     }
 
+    // reverse a stack
+    public static void reverseStack(Stack<Integer>s){
+
+        if(s.isEmpty()){
+            return;
+        }
+
+        int tem = s.pop();
+        reverseStack(s);
+        addVlaueToBottom(s, tem);
+
+    }
+
 
 
     public static void main(String[] args) {
@@ -28,6 +41,7 @@ public class Stack_Question {
         s.push(10);
         s.push(15);
         addVlaueToBottom(s, 8);
+        reverseStack(s);
         while (!s.isEmpty()) {
             System.out.println(s.peek());
             s.pop();
