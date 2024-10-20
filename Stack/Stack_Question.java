@@ -216,23 +216,46 @@ public class Stack_Question {
         return result;
     }
 
+
+    public static String reversePrefix(String word, char ch) {
+        Stack<Character> stack = new Stack<>();
+        int checker = 0;
+        String sh = "";
+        String str = "";
+        for(int i = 0; i<word.length(); i++){
+            if(word.charAt(i) != ch){
+                stack.push(word.charAt(i));
+            }else{
+                checker++;
+                stack.push(word.charAt(i));
+                sh += word.substring(i+1, word.length());
+                break;
+
+            }
+        
+        }
+        if(checker == 0) return word;
+        while (!stack.isEmpty()) {
+            str += stack.pop();
+            
+        }
+      
+        return str + sh;
+    }
+
     
 
 
 
     public static void main(String[] args) {
 
-//         [1,3,5,2,4]
-// nums2 =
-// [6,5,4,3,2,1,7]
-       
-        int[] nums1 = {1,3,5,2,4};
-        int[] nums2 = {6,5,4,3,2,1,7};
-        int[] c = nextGreaterElement(nums1, nums2);
 
-        for(int s : c){
-            System.out.println(s);
-        }
+       
+    //  word = "abcdefd", ch = "d"
+    String w = "abcdefd";
+    char ch = 'd';
+    String s = reversePrefix(w,ch);
+    System.out.println(s);
     //     String[] ops = {"5","2","C","D"};
     //    int x = calPoints(ops);
     //    System.out.println(x);
