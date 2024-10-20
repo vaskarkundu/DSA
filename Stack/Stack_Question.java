@@ -160,65 +160,74 @@ public class Stack_Question {
     }
 
    
-    public static int nexMatch(int val, Stack<Integer> stack) {
-        if (stack.isEmpty()) {
-            return -1;
-        }
-        int tem = stack.pop(); // Pop the top of the stack
-        if (val == tem) {
-            if (!stack.isEmpty()) {
-                int next = stack.peek(); // Peek the next element without popping
-                if (val < next) {
-                    return next; // Return the next greater element
-                } else {
-                    return -1;
-                }
-            } else {
-                return -1;
-            }
-        }
-        return nexMatch(val, stack); // Continue recursion for remaining elements
-    }
-    
-    
+    public static int[] _nextGreaterElement(int[] nums1, int[] nums2) {
 
-    
+        Stack<Integer> stack = new Stack<>();
+        HashMap<Integer,Integer> nexHashMap = new HashMap<>();
+
+        for(int num : nums2){
+
+            if(!stack.isEmpty() && num > stack.peek()){
+                nexHashMap.put(stack.pop(), num);
+
+            }
+
+            stack.push(num);
+        }
+
+        while (!stack.isEmpty()) {
+            nexHashMap.put(stack.pop(), -1);
+            
+        }
+
+        int[] res = new int[nums1.length];
+        for(int i = 0; i<nums1.length; i++){
+            res[i] = nexHashMap.getOrDefault(nums1[i],-1);
+        }
+
+
+        return res;
+    }
 
     public static int[] nextGreaterElement(int[] nums1, int[] nums2) {
+        Map<Integer, Integer> nextGreaterMap = new HashMap<>();
+        Stack<Integer> stack = new Stack<>();
 
-        ArrayList<Integer> s = new ArrayList<>();
-    
-        for (int i = 0; i < nums1.length; i++) {
-            Stack<Integer> sta = new Stack<>();  
-            for (int num : nums2) {
-                sta.push(num);
+      
+        for (int num : nums2) {
+           
+            while (!stack.isEmpty() && num > stack.peek()) {
+                nextGreaterMap.put(stack.pop(), num);
             }
-    
-       
-            int nex = nexMatch(nums1[i], sta);
-            s.add(nex);
+            stack.push(num);
         }
 
-       System.out.println(s);
-    
        
-        int[] result = new int[s.size()];
-        for (int i = 0; i < s.size(); i++) {
-            result[i] = s.get(i);
+        while (!stack.isEmpty()) {
+            nextGreaterMap.put(stack.pop(), -1);
         }
-    
-        return result; 
+
+       
+        int[] result = new int[nums1.length];
+        for (int i = 0; i < nums1.length; i++) {
+            result[i] = nextGreaterMap.getOrDefault(nums1[i], -1); 
+        }
+
+        return result;
     }
-    
 
     
 
 
 
     public static void main(String[] args) {
+
+//         [1,3,5,2,4]
+// nums2 =
+// [6,5,4,3,2,1,7]
        
-        int[] nums1 = {4,1,2};
-        int[] nums2 = {1,3,4,2};
+        int[] nums1 = {1,3,5,2,4};
+        int[] nums2 = {6,5,4,3,2,1,7};
         int[] c = nextGreaterElement(nums1, nums2);
 
         for(int s : c){
