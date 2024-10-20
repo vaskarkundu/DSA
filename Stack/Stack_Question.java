@@ -159,11 +159,73 @@ public class Stack_Question {
         return count;
     }
 
+   
+    public static int nexMatch(int val, Stack<Integer> stack) {
+        if (stack.isEmpty()) {
+            return -1;
+        }
+        int tem = stack.pop(); // Pop the top of the stack
+        if (val == tem) {
+            if (!stack.isEmpty()) {
+                int next = stack.peek(); // Peek the next element without popping
+                if (val < next) {
+                    return next; // Return the next greater element
+                } else {
+                    return -1;
+                }
+            } else {
+                return -1;
+            }
+        }
+        return nexMatch(val, stack); // Continue recursion for remaining elements
+    }
+    
+    
+
+    
+
+    public static int[] nextGreaterElement(int[] nums1, int[] nums2) {
+
+        ArrayList<Integer> s = new ArrayList<>();
+    
+        for (int i = 0; i < nums1.length; i++) {
+            Stack<Integer> sta = new Stack<>();  
+            for (int num : nums2) {
+                sta.push(num);
+            }
+    
+       
+            int nex = nexMatch(nums1[i], sta);
+            s.add(nex);
+        }
+
+       System.out.println(s);
+    
+       
+        int[] result = new int[s.size()];
+        for (int i = 0; i < s.size(); i++) {
+            result[i] = s.get(i);
+        }
+    
+        return result; 
+    }
+    
+
+    
+
 
 
     public static void main(String[] args) {
-        String[] ops = {"5","2","C","D"};
-       int x = calPoints(ops);
+       
+        int[] nums1 = {4,1,2};
+        int[] nums2 = {1,3,4,2};
+        int[] c = nextGreaterElement(nums1, nums2);
+
+        for(int s : c){
+            System.out.println(s);
+        }
+    //     String[] ops = {"5","2","C","D"};
+    //    int x = calPoints(ops);
     //    System.out.println(x);
 
         // Stack<Integer> s = new Stack<>();
