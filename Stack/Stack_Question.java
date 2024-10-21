@@ -243,35 +243,161 @@ public class Stack_Question {
         return str + sh;
     }
 
-    
+    public static int minLength(String s) {
+        // Stack<Character> stack = new Stack<>();
+        // int size = s.length() -1;
 
+        // while (size >= 0 ) {
+        //     stack.push(s.charAt(size));
+        //     size--;    
+        // }
+        // int ini = 0;
+        // while (ini < 10) {
+
+        //     char tem = stack.peek();
+
+        //     if(tem == 'A'){
+        //         char temone = stack.pop();
+        //         char next = stack.peek();
+        //         if(next == 'B'){
+        //            if(!stack.isEmpty()){
+        //             stack.pop();
+        //            }
+        //         }else{
+                    
+        //             stack.push(temone);
+        //         }
+                
+        //     }else if(tem == 'C'){
+        //         char temone = stack.pop();
+        //         char next = stack.peek();
+        //         if(next == 'D'){
+        //            if(!stack.isEmpty()){
+        //             stack.pop();
+        //            }
+        //         }else{
+
+        //             stack.push(temone);
+        //         }
+
+        //     }
+
+        //     ini++;
+
+            
+            
+        // }
+
+        // while (!stack.isEmpty()) {
+        //     System.out.println(stack.peek());
+        //     stack.pop();
+            
+        // }
+        int ini = 0;
+        int next = 1;
+        int size = s.length();
+        // while () {
+            
+        // }
+        return 0;
+    }
+
+    public static String _clearDigits(String s) {
+
+       Stack<Character> stack = new Stack<>();
+
+       int count = 0;
+
+       for(char a : s.toCharArray()){
+        stack.push(a);
+       }
+
+       int size = stack.size();
+
+       while (size >= 0) {
+
+        char top = stack.peek();
+
+        if('z' - top > 25){
+            if(!stack.isEmpty()){
+                count++;
+                stack.pop();
+
+            }
+
+        }
+        size--;
+       }
+
+       String str = "";
+
+       while (!stack.isEmpty()) {
+         
+            str += stack.pop();
+
+       }
+
+       String reversed = "";
+        for (int i = str.length() - 1; i >= 0; i--) {
+            reversed += str.charAt(i);
+        }
+
+        return reversed.substring(0, reversed.length() - count);
+        
+    }
+
+
+    public static String clearDigits(String s) {
+
+        Stack<Character> stack = new Stack<>();
+
+        for(char st : s.toCharArray()){
+            stack.push(st);
+        }
+        String str = "";
+        int count = 0;
+        int size = stack.size();
+
+        while (size >= 0) {
+ 
+         char top = stack.peek();
+ 
+         if('z' - top > 25){
+             if(!stack.isEmpty()){
+                 stack.pop();
+             }
+ 
+         }
+         size--;
+        }
+
+        return s;
+
+    }
+
+
+    
+  
 
 
     public static void main(String[] args) {
 
+//         Input: s = "ABFCACDB"
+// Output: 2
+// Explanation: We can do the following operations:
+// - Remove the substring "ABFCACDB", so s = "FCACDB".
+// - Remove the substring "FCACDB", so s = "FCAB".
+// - Remove the substring "FCAB", so s = "FC".
+// So the resulting length of the string is 2.
+// It can be shown that it is the minimum length that we can obtain.
+
+//    int s = minLength("ABFCACDB");
+   String st = clearDigits("abc");
+
 
        
-    //  word = "abcdefd", ch = "d"
-    String w = "abcdefd";
-    char ch = 'd';
-    String s = reversePrefix(w,ch);
-    System.out.println(s);
-    //     String[] ops = {"5","2","C","D"};
-    //    int x = calPoints(ops);
-    //    System.out.println(x);
-
-        // Stack<Integer> s = new Stack<>();
-        // s.push(1);
-        // s.push(5);
-        // s.push(10);
-        // s.push(15);
-        // addVlaueToBottom(s, 8);
-        // reverseStack(s);
-        // while (!s.isEmpty()) {
-        //     System.out.println(s.peek());
-        //     s.pop();
-            
-        // }
+  
+    
         
     }
     
