@@ -303,21 +303,49 @@ public class Stack_Question {
 
 
     
-  
+    public static String removeDuplicates(String s) {
+
+        Stack<Character> stack = new Stack<>();
+
+        for(char ch : s.toCharArray()){
+            if(!stack.isEmpty()){
+                char top = stack.peek();
+                if(top == ch){
+                    stack.pop();
+                }else{
+                    stack.push(ch);
+                }
+
+            }else{
+                stack.push(ch);
+            }
+        }
+
+        String str = "";
+
+        while (!stack.isEmpty()) {
+           
+            str +=stack.pop();
+            
+        }
+
+        String reversed = "";
+        for (int i = str.length() - 1; i >= 0; i--) {
+            reversed += str.charAt(i);
+        }
+       return reversed;
+
+      
+        
+    }
 
 
     public static void main(String[] args) {
 
-    //         Input: s = "ABFCACDB"
-    // Output: 2
-    // Explanation: We can do the following operations:
-    // - Remove the substring "ABFCACDB", so s = "FCACDB".
-    // - Remove the substring "FCACDB", so s = "FCAB".
-    // - Remove the substring "FCAB", so s = "FC".
-    // So the resulting length of the string is 2.
-    // It can be shown that it is the minimum length that we can obtain.
+//     Input: s = "abbaca"
+// Output: "ca"
 
-       int s = minLength("ABFCACDB");
+       String s = removeDuplicates("azxxzy");
        System.out.println(s);
      
     }
