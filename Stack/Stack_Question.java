@@ -351,28 +351,32 @@ public class Stack_Question {
 
         Stack<Character> stack = new Stack<>();
 
-        for(char st : s.toCharArray()){
-            stack.push(st);
+        for(char ch : s.toCharArray()){
+            if('z' - ch > 25){
+                if(!s.isEmpty()){
+                    stack.pop();
+                }
+            }else{
+                stack.push(ch);
+            }
         }
+
         String str = "";
-        int count = 0;
-        int size = stack.size();
 
-        while (size >= 0) {
+        while (!stack.isEmpty()) {
+          
+             str += stack.pop();
  
-         char top = stack.peek();
- 
-         if('z' - top > 25){
-             if(!stack.isEmpty()){
-                 stack.pop();
-             }
- 
-         }
-         size--;
         }
 
-        return s;
+        if(str.length() == 0) return str;
 
+        String reversed = "";
+        for (int i = str.length() - 1; i >= 0; i--) {
+            reversed += str.charAt(i);
+        }
+       return reversed;
+       
     }
 
 
@@ -392,7 +396,7 @@ public class Stack_Question {
 // It can be shown that it is the minimum length that we can obtain.
 
 //    int s = minLength("ABFCACDB");
-   String st = clearDigits("abc");
+   String st = clearDigits("ac3b");
 
 
        
