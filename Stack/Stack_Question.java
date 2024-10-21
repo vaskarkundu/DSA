@@ -242,64 +242,29 @@ public class Stack_Question {
       
         return str + sh;
     }
-
+    
+  
     public static int minLength(String s) {
-        // Stack<Character> stack = new Stack<>();
-        // int size = s.length() -1;
 
-        // while (size >= 0 ) {
-        //     stack.push(s.charAt(size));
-        //     size--;    
-        // }
-        // int ini = 0;
-        // while (ini < 10) {
+        Stack<Character> stack = new Stack<>();
 
-        //     char tem = stack.peek();
+        for(char ch : s.toCharArray()){
+             if(!stack.isEmpty()){
+                char top = stack.peek();
+                if((top == 'A' && ch == 'B' )||(top == 'C' && ch == 'D' )){
+                    stack.pop();
+                } else{
+                    stack.push(ch);
+                }
 
-        //     if(tem == 'A'){
-        //         char temone = stack.pop();
-        //         char next = stack.peek();
-        //         if(next == 'B'){
-        //            if(!stack.isEmpty()){
-        //             stack.pop();
-        //            }
-        //         }else{
-                    
-        //             stack.push(temone);
-        //         }
-                
-        //     }else if(tem == 'C'){
-        //         char temone = stack.pop();
-        //         char next = stack.peek();
-        //         if(next == 'D'){
-        //            if(!stack.isEmpty()){
-        //             stack.pop();
-        //            }
-        //         }else{
+             }else{
+                stack.push(ch);
+             }
+        }
 
-        //             stack.push(temone);
-        //         }
-
-        //     }
-
-        //     ini++;
-
-            
-            
-        // }
-
-        // while (!stack.isEmpty()) {
-        //     System.out.println(stack.peek());
-        //     stack.pop();
-            
-        // }
-        int ini = 0;
-        int next = 1;
-        int size = s.length();
-        // while () {
-            
-        // }
-        return 0;
+       
+       
+        return stack.size();
     }
 
     
@@ -343,23 +308,18 @@ public class Stack_Question {
 
     public static void main(String[] args) {
 
-//         Input: s = "ABFCACDB"
-// Output: 2
-// Explanation: We can do the following operations:
-// - Remove the substring "ABFCACDB", so s = "FCACDB".
-// - Remove the substring "FCACDB", so s = "FCAB".
-// - Remove the substring "FCAB", so s = "FC".
-// So the resulting length of the string is 2.
-// It can be shown that it is the minimum length that we can obtain.
+    //         Input: s = "ABFCACDB"
+    // Output: 2
+    // Explanation: We can do the following operations:
+    // - Remove the substring "ABFCACDB", so s = "FCACDB".
+    // - Remove the substring "FCACDB", so s = "FCAB".
+    // - Remove the substring "FCAB", so s = "FC".
+    // So the resulting length of the string is 2.
+    // It can be shown that it is the minimum length that we can obtain.
 
-//    int s = minLength("ABFCACDB");
-   String st = clearDigits("ac3b");
-
-
-       
-  
-    
-        
+       int s = minLength("ABFCACDB");
+       System.out.println(s);
+     
     }
     
 }
