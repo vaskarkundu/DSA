@@ -302,50 +302,7 @@ public class Stack_Question {
         return 0;
     }
 
-    public static String _clearDigits(String s) {
-
-       Stack<Character> stack = new Stack<>();
-
-       int count = 0;
-
-       for(char a : s.toCharArray()){
-        stack.push(a);
-       }
-
-       int size = stack.size();
-
-       while (size >= 0) {
-
-        char top = stack.peek();
-
-        if('z' - top > 25){
-            if(!stack.isEmpty()){
-                count++;
-                stack.pop();
-
-            }
-
-        }
-        size--;
-       }
-
-       String str = "";
-
-       while (!stack.isEmpty()) {
-         
-            str += stack.pop();
-
-       }
-
-       String reversed = "";
-        for (int i = str.length() - 1; i >= 0; i--) {
-            reversed += str.charAt(i);
-        }
-
-        return reversed.substring(0, reversed.length() - count);
-        
-    }
-
+    
 
     public static String clearDigits(String s) {
 
