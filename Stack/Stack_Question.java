@@ -360,6 +360,39 @@ public class Stack_Question {
         return depth;
     }
 
+    public static String makeGood(String s) {
+        Stack<Character> stack = new Stack<>();
+
+        String str = "";
+
+        for(char ch : s.toCharArray()){
+             if(!stack.isEmpty()){
+                char top = stack.peek();
+                if((Math.abs(top - ch) == 32 )){
+                    stack.pop();
+                } else{
+                    stack.push(ch);
+                }
+
+             }else{
+                stack.push(ch);
+             }
+        }
+
+        if(stack.size() == 0) return str;
+        while (!stack.isEmpty()) {
+            str +=stack.pop();
+            
+            
+        }
+        String reversed = "";
+        for (int i = str.length() - 1; i >= 0; i--) {
+            reversed += str.charAt(i);
+        }
+       return reversed;
+
+    }
+
 
     public static void main(String[] args) {
 
@@ -368,7 +401,7 @@ public class Stack_Question {
         // Output: 3
 
 
-       int s = maxDepth("(1+(2*3)+((8)/4))+1");
+       String s = makeGood("leEeetcode");
        System.out.println(s);
      
     }
