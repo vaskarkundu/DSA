@@ -339,17 +339,36 @@ public class Stack_Question {
         
     }
 
-    public int maxDepth(String s) {
-        return 0;
+    public static int maxDepth(String s) {
+
+        int max = 0;
+        int depth = 0;
+
+        for(char ch : s.toCharArray()){
+            if(ch == '('){
+                max++;
+                if(max > depth){
+                    depth++;
+                }
+            }
+            if(ch == ')'){
+                max--;
+            }
+        }
+
+        
+        return depth;
     }
 
 
     public static void main(String[] args) {
 
-//     Input: s = "abbaca"
-// Output: "ca"
+        // Input: s = "(1)+((2))+(((3)))"
 
-       String s = removeDuplicates("azxxzy");
+        // Output: 3
+
+
+       int s = maxDepth("(1+(2*3)+((8)/4))+1");
        System.out.println(s);
      
     }
