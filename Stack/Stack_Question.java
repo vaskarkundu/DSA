@@ -392,6 +392,39 @@ public class Stack_Question {
        return reversed;
 
     }
+// ('+', '-', '*', '/'
+    public static int calculate(String s) {
+
+        Stack<String> stack = new Stack<>();
+        String str = "";
+        String carry = "";
+        for(char ch : s.trim().replace(" ", "").toCharArray()){
+            if(ch == '+' || ch == '-'  || ch == '*' || ch == '/' ){
+                stack.push(carry);
+                str +=ch;
+                stack.push(str);
+                str = "";
+                carry = "";
+            }else{
+                 carry += ch;
+            }
+        }
+        if(!carry.isEmpty()){
+            stack.push(carry);
+        }
+        String cary = "";
+        while (!stack.isEmpty()) {
+            String curr = 
+
+            // System.out.println(stack.peek());
+            stack.pop();
+        }
+        return 0;
+    }
+
+    public static int[] nextGreaterElements(int[] nums) {
+        return nums;
+    }
 
 
     public static void main(String[] args) {
@@ -401,7 +434,7 @@ public class Stack_Question {
         // Output: 3
 
 
-       String s = makeGood("leEeetcode");
+       int s = calculate("23+5   /3");
        System.out.println(s);
      
     }
