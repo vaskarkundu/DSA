@@ -382,10 +382,11 @@ public ListNode removeNthFromEnd(ListNode head, int n) {
         ListNode curr = head;
         while (curr.next != null) {
             curr = curr.next;
-
         }
         curr.next = x;
         }
+
+       
 
        
 
