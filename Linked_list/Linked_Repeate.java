@@ -1,5 +1,7 @@
 package Linked_list;
 
+import java.util.Stack;
+
 import Linked_list.LinkedList_Question.ListNode;
 
 // addFirst(E e) - Inserts the element at the front of the list.
@@ -431,8 +433,7 @@ public class Linked_Repeate {
         Node pre = head;
         Node curr = head.next;
 
-        while (curr != null) {
-            
+        while (curr != null) {     
             if(curr.data.contains(x)){
                 pre.next = curr.next;
                 curr = curr.next;
@@ -493,10 +494,43 @@ public class Linked_Repeate {
         
     }
 
-//     Input: l1 = [2,4,3], l2 = [5,6,4]
-// Output: [7,0,8]
-// Explanation: 342 + 465 = 807.
-// 30 + 40 + 20
+    public void reorderList() {
+
+        if(head == null || head.next == null){
+            return;
+        }
+
+        Stack<Node> stack = new Stack<>();
+        Node tem = head;
+        while (tem != null) {
+            stack.push(tem);
+            tem = tem.next;
+        }
+       
+        Node cuNode = head;
+      
+        while (cuNode != null) {
+
+            Node nexNode = cuNode.next;
+            Node last = stack.pop();
+            cuNode.next = last;
+            last.next = nexNode;
+            cuNode = nexNode;
+            if (cuNode != null && cuNode.next == last) {
+                cuNode.next = null;  
+                break;
+            }
+
+            
+        }
+        
+       
+        
+    }
+
+    
+
+
 
  
     public static void main(String[] args) {
@@ -504,11 +538,13 @@ public class Linked_Repeate {
       
        
         // LL.addFirst("1");
-        LL.addLast("0");
-        // LL.addLast("1");
+        // LL.addLast("0");
         LL.addLast("1");
-        // LL.addLast("2");
         LL.addLast("2");
+        LL.addLast("3");
+        LL.addLast("4");
+        LL.addLast("5");
+        LL.reorderList();
         // LL.addLast("4");
         // LL.addLast("5");
         // LL.addLast("1");
