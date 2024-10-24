@@ -13,10 +13,11 @@ public class Diff_Approach {
         int windowSLiding = max;
         for(int i =k; i<arr.length; i++){
             windowSLiding = arr[i] - arr[i -k];
+            max = Math.max(max, windowSLiding);
         }
         
 
-        return Math.max(max, windowSLiding);
+        return max;
     }
 
     public static void main(String[] args) {
