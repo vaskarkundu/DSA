@@ -8,7 +8,6 @@ public class Diff_Approach {
         int max = 0;
         for(int i =0; i<k; i++){
             max += arr[i];
-
         }
         int windowSLiding = max;
         for(int i =k; i<arr.length; i++){
