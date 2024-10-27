@@ -443,15 +443,48 @@ public class Stack_Question {
         return nums;
     }
 
+    
+
+    public static String removeDuplicates(String s, int k) {
+        Stack<Character> stack = new Stack<>();
+        Stack<Integer> countStack = new Stack<>();  
+    
+        for (char ch : s.toCharArray()) {
+            if (!stack.isEmpty() && stack.peek() == ch) {
+                countStack.push(countStack.pop() + 1);
+                if (countStack.peek() == k) {
+                    stack.pop();
+                    countStack.pop();
+                }
+            } else {
+                stack.push(ch);
+                countStack.push(1);
+            }
+        }
+        StringBuilder str = new StringBuilder();
+        while (!stack.isEmpty()) {
+            char ch = stack.pop();
+            int count = countStack.pop();
+            for (int i = 0; i < count; i++) {
+                str.append(ch);
+            }
+        }
+    
+        return str.reverse().toString();
+    }
 
     public static void main(String[] args) {
 
         // Input: s = "(1)+((2))+(((3)))"
-
         // Output: 3
+//       Input: s = "abcd", k = 2
+// Output: "abcd"
+// Explanation: There's nothing to delete.
+// Example 2:
 
-
-       int s = calculate("23+5   /3");
+// Input: s = "deeedbbcccbdaa", k = 3
+// Output: "aa"
+       String s = removeDuplicates("deeedbbcccbdaa",3);
        System.out.println(s);
      
     }
