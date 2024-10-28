@@ -471,21 +471,56 @@ public class Stack_Question {
         }
     
         return str.reverse().toString();
+        
+
+    }
+
+    public static boolean isValid(String s) {
+
+        Stack<Character> stack = new Stack<>();
+        for(char ch : s.toCharArray()){
+            if(!stack.isEmpty()){
+                stack.push(ch);
+                if(stack.size() >= 3){
+                    char top = stack.peek();
+                    if(top == 'c'){
+                        if(stack.get(stack.size() - 2) == 'b' && stack.get(stack.size() - 3) =='a'){
+                            stack.pop();
+                            stack.pop();
+                            stack.pop();
+                        }
+                    }
+                }
+               
+
+            }else{
+                stack.push(ch);
+            }
+        }
+
+        
+
+        return stack.size() == 0;
+        
+    }
+
+
+    public static String reverseParentheses(String s) {
+
+        Stack<String> stack = new Stack<>();
+        
+
+
+
+        return s;
+        
     }
 
     public static void main(String[] args) {
 
-        // Input: s = "(1)+((2))+(((3)))"
-        // Output: 3
-//       Input: s = "abcd", k = 2
-// Output: "abcd"
-// Explanation: There's nothing to delete.
-// Example 2:
-
-// Input: s = "deeedbbcccbdaa", k = 3
-// Output: "aa"
-       String s = removeDuplicates("deeedbbcccbdaa",3);
-       System.out.println(s);
+    
+       String s = reverseParentheses("(u(love)i)");
+    //    System.out.println(s);
      
     }
     
