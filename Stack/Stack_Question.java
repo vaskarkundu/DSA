@@ -508,11 +508,40 @@ public class Stack_Question {
     public static String reverseParentheses(String s) {
 
         Stack<String> stack = new Stack<>();
+        String st = "";
+
+        for(char ch : s.toCharArray()){
+
+            
+
+            if(ch == ')' || ch == '('){
+                
+
+                stack.push(st);
+
+                st = "";
+
+            }else{
+
+                st += ch;
+            }
+
+        }
+
+        String str = "";
+
+        while (!stack.isEmpty()) {
+           
+            str +=stack.pop();
+            
+        }
+
+       
         
 
 
 
-        return s;
+        return str;
         
     }
 
@@ -520,7 +549,7 @@ public class Stack_Question {
 
     
        String s = reverseParentheses("(u(love)i)");
-    //    System.out.println(s);
+       System.out.println(s);
      
     }
     
