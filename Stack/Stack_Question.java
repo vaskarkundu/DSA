@@ -421,7 +421,7 @@ public class Stack_Question {
         }
         return 0;
     }
-//     Input: nums = [1,2,1]
+// Input: nums = [1,2,1]
 // Output: [2,-1,2]
 // Explanation: The first 1's next greater number is 2; 
 // The number 2 can't find next greater number. 
@@ -511,45 +511,81 @@ public class Stack_Question {
         String st = "";
 
         for(char ch : s.toCharArray()){
-
-            
-
             if(ch == ')' || ch == '('){
-                
-
                 stack.push(st);
-
                 st = "";
 
             }else{
-
                 st += ch;
             }
-
         }
-
         String str = "";
-
         while (!stack.isEmpty()) {
            
             str +=stack.pop();
             
         }
+        return str; 
+    }
 
+    public static int binarySearch(int[] arr, int ter){
+
+        int high = arr.length - 1;
+        int low = 0;
+
+        while (low <= high) {
+            int mid = low + (high - low) /2;
+
+            if(arr[mid] == ter){
+                return mid;
+            }else if(arr[mid] < ter){
+                low = mid + 1;
+            }else{
+                 high = mid- 1;
+
+            }
+            
+        }
        
-        
+        return -1;
+    }
 
+    public static List<String> buildArray(int[] target, int n) {
+        List<String> li = new ArrayList<String>();
+        int ini = 1;
+        int last = target[target.length -1] ;
 
+        while (ini <= n) {
 
-        return str;
+            if(ini > last){
+                break;
+            }
+
+            int x = binarySearch(target, ini);
+            if(x == -1){
+                li.add("push");
+                li.add("pop");
+            }else{
+                li.add("push");
+            }
+
+          
+
+            ini++;
+            
+        }
+        return li;
         
     }
 
     public static void main(String[] args) {
 
+        int[] tar = {1,3};
+        buildArray(tar, 3);
+
     
-       String s = reverseParentheses("(u(love)i)");
-       System.out.println(s);
+    //    String s = reverseParentheses("(u(love)i)");
+    //    System.out.println(s);
      
     }
     
