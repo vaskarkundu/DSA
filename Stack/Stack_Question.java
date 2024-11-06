@@ -333,10 +333,7 @@ public class Stack_Question {
         for (int i = str.length() - 1; i >= 0; i--) {
             reversed += str.charAt(i);
         }
-       return reversed;
-
-      
-        
+       return reversed;        
     }
 
     public static int maxDepth(String s) {
@@ -443,7 +440,7 @@ public class Stack_Question {
         return nums;
     }
 
-    
+     
 
     public static String removeDuplicates(String s, int k) {
         Stack<Character> stack = new Stack<>();
@@ -579,18 +576,32 @@ public class Stack_Question {
     }
 
     public static int minimumDeletions(String s) {
-        
-        return 0;
+
+        Stack<Character> stack = new Stack<>();
+        int delete = 0;
+
+        for(char ch : s.toCharArray()){
+            if(ch == 'b'){
+                stack.push(ch);
+            }else if(ch == 'a'){
+                if(!stack.isEmpty()){
+                    delete++;
+                    stack.pop();
+
+                }
+            }
+           
+        }
+
+        return delete;
     }
 
     public static void main(String[] args) {
 
-        int[] tar = {1,3};
-        buildArray(tar, 3);
 
-    
-    //    String s = reverseParentheses("(u(love)i)");
-    //    System.out.println(s);
+        int s = minimumDeletions("bbaaaaabb");
+        System.out.println(s);
+
      
     }
     
