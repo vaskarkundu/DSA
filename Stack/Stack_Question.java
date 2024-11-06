@@ -596,10 +596,41 @@ public class Stack_Question {
         return delete;
     }
 
+    public static String removeStars(String s) {
+        Stack<Character> stack = new Stack<>();
+
+        for(char ch : s.toCharArray()){
+            if(ch == '*'){
+
+                if(!stack.isEmpty()){
+                    stack.pop();
+                }
+
+            }else{
+                stack.push(ch);
+            }
+        }
+        if(stack.size() == 0) return "";
+        String str = "";
+
+        while (!stack.isEmpty()) {
+           
+            str +=stack.pop();
+            
+        }
+
+        String reversed = "";
+        for (int i = str.length() - 1; i >= 0; i--) {
+            reversed += str.charAt(i);
+        }
+       return reversed; 
+        
+    }
+
     public static void main(String[] args) {
 
 
-        int s = minimumDeletions("bbaaaaabb");
+        String s = removeStars("erase*****");
         System.out.println(s);
 
      
