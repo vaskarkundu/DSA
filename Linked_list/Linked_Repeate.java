@@ -528,6 +528,40 @@ public class Linked_Repeate {
         
     }
 
+    public  void removeNodes() {
+
+        Node cuNode = head;
+        Node nex = head.next;
+
+        while (head != null) {
+            Node nexNode = head.next;
+            int x = 0;
+            while (nexNode != null) {
+
+                if(head.data == nexNode.data){
+                    x++;
+                    break;
+                }
+
+               nexNode = nexNode.next;
+                
+            }
+            if(x != 0){
+                head = head.next;
+            }else{
+                head = head.next;
+            }
+
+
+            
+        }
+
+
+
+        // return head;
+        
+    }
+
     
 
 
@@ -538,13 +572,18 @@ public class Linked_Repeate {
       
        
         // LL.addFirst("1");
+        // LL.addFirst("2");
+        // LL.addFirst("3");
+        // LL.addFirst("4");
+        // LL.addFirst("5");
         // LL.addLast("0");
         LL.addLast("1");
         LL.addLast("2");
         LL.addLast("3");
         LL.addLast("4");
         LL.addLast("5");
-        LL.reorderList();
+        LL.removeNodes();
+        // LL.reorderList();
         // LL.addLast("4");
         // LL.addLast("5");
         // LL.addLast("1");
@@ -566,7 +605,7 @@ public class Linked_Repeate {
         // LL.removeNthFromEnd();
 
         // LL.reverseList();
-        LL.printList();
+        // LL.printList();
         // LL.removeLast();
         // LL.getFirst();
         // LL.getLast();
