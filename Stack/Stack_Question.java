@@ -159,7 +159,7 @@ public class Stack_Question {
         return count;
     }
 
-   
+
     public static int[] _nextGreaterElement(int[] nums1, int[] nums2) {
 
         Stack<Integer> stack = new Stack<>();
