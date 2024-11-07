@@ -528,13 +528,13 @@ public class Linked_Repeate {
         
     }
 
-    public  void removeNodes() {
+    public void removeNodes() {
 
         Node cuNode = head;
         Node nex = head.next;
 
-        while (head != null) {
-            Node nexNode = head.next;
+        while (cuNode != null) {
+            Node nexNode = cuNode.next;
             int x = 0;
             while (nexNode != null) {
 
@@ -547,16 +547,13 @@ public class Linked_Repeate {
                 
             }
             if(x != 0){
-                head = head.next;
+                cuNode = cuNode.next;
             }else{
-                head = head.next;
+                cuNode = cuNode.next;
             }
-
 
             
         }
-
-
 
         // return head;
         
