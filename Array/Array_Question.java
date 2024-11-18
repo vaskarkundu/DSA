@@ -113,12 +113,95 @@ public class Array_Question {
         return chekTime(amount[2], amount[1], amount[0], 0);
         
     }
+
+    public static long _maxEnergyBoost(int[] energyDrinkA, int[] energyDrinkB) {
+        
+        long a = 0;
+        long b = 0;
+        for(int x : energyDrinkA){
+            a +=x;   
+        }
+        for(int x : energyDrinkB){
+            b +=x;   
+        }
+
+        int ini = 0;
+        long total = 0;
+
+        while (ini < energyDrinkA.length - 1) {
+
+            if (energyDrinkA[ini] < energyDrinkB[ini + 1]) {
+                
+                total += energyDrinkB[ini + 1];
+                ini++;  
+            } else {
+                
+                total += energyDrinkA[ini];
+            }
+        
+            ini++;  
+        }
+
+        long max = Math.max(total, Math.max(b, a));  
+        
+
+        return max;      
+        
+        
+
+        
+    }
+
+    public static long maxEnergyBoost(int[] energyDrinkA, int[] energyDrinkB) {
+        long a = 0;
+        long b = 0; 
+        
+        for (int x : energyDrinkA) {
+            a += x;
+        }
+        for (int x : energyDrinkB) {
+            b += x;
+        }
+    
+        int ini = 0;
+        long total = 0;
+        boolean lastWasA = true;
+    
+        while (ini < energyDrinkA.length - 1) {
+            if (lastWasA) {
+                if (energyDrinkA[ini] < energyDrinkB[ini + 1]) {
+                    // Switch to B
+                    lastWasA = false;
+                    total += energyDrinkB[ini + 1]; // Gain from B
+                    ini++; // Cleansing is implicit due to the jump
+                } else {
+                    total += energyDrinkA[ini]; // Continue with A
+                }
+            } else {
+                if (energyDrinkB[ini] < energyDrinkA[ini + 1]) {
+                    // Switch to A
+                    lastWasA = true;
+                    total += energyDrinkA[ini + 1]; // Gain from A
+                    ini++; // Cleansing is implicit due to the jump
+                } else {
+                    total += energyDrinkB[ini]; // Continue with B
+                }
+            }
+            ini++; 
+        }
+    
+        long max = Math.max(total, Math.max(b, a));
+        return max;
+    }
+    
     // 1+1+1+1
     public static void main(String[] args) {
+        // 1,3,1], energyDrinkB = [3,1,1]
         // c , w, h
-        int [] n ={1,4,2};
+        int [] n ={1,3,1};
+        int [] m ={3,1,1};
 
-         int x =fillCups(n);
+         long x = maxEnergyBoost(n,m);
          System.out.println(x);
         // // System.out.println("done");
         // // int[][] arr = {
