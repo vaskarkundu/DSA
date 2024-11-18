@@ -114,7 +114,7 @@ public class Array_Question {
         
     }
 
-    public static long _maxEnergyBoost(int[] energyDrinkA, int[] energyDrinkB) {
+    public static long maxEnergyBoost(int[] energyDrinkA, int[] energyDrinkB) {
         
         long a = 0;
         long b = 0;
@@ -152,7 +152,7 @@ public class Array_Question {
         
     }
 
-    public static long maxEnergyBoost(int[] energyDrinkA, int[] energyDrinkB) {
+    public static long _maxEnergyBoost(int[] energyDrinkA, int[] energyDrinkB) {
         long a = 0;
         long b = 0; 
         
